@@ -19,7 +19,7 @@ const userSchema = new Schema({
   email: { type: String },
   address: { type: String },
   state: { type: String },
-  zip: { type: String },
+  zipCode: { type: String },
   // role: will add later
   // securityQuestions: will add later
 });
