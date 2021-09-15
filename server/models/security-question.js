@@ -9,12 +9,14 @@
 
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+const Question = require('./security-question');
+const Answer = require('./security-question')
 
 //Defining the Security Question Schema
 
 const securityQuestions = new Schema({
-  question:{type: String},
-  answer: {type: String}
+  question:[Question],
+  answer: Answer
 })
 
 module.exports = mongoose.model("Security Questions", securityQuestions);
