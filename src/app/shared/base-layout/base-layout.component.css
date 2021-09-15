@@ -1,40 +1,47 @@
 .logo {
-    margin-left: 75px;
-    font-size: 24px;
-    font-weight: lighter;;
-  }
-  
-  .navbar-container {
-    padding: 5px;
-  }
-  
-  .navbar-link {
-    font-size: 24px;
-    font-weight: lighter;
-  }
-  
-  .main-content {
-    padding-left: 30px;
-  }
-  
-  .footer {
-    bottom: 0;
-    position: absolute;
-    width: 100%;
-  }
-  
-  .footer-content {
-    font-size: 16px;
-    font-weight: lighter;
-    padding-left: 100px;
-    letter-spacing: 3px;
-  }
-  
-  .bu-link {
-    text-decoration: none;
-  }
-  
-  .bu-link:hover {
-    text-decoration: underline;
-  }
-  
+  margin-left: 75px;
+  font-size: 24px;
+  font-weight: lighter;
+}
+
+.navbar-container {
+  padding: 5px;
+}
+
+.navbar-link {
+  font-size: 24px;
+  font-weight: lighter;
+}
+
+.main-content {
+  padding-left: 30px;
+}
+
+.footer {
+  bottom: 0;
+  position: absolute;
+  width: 100%;
+}
+
+.footer-content {
+  font-size: 16px;
+  font-weight: lighter;
+  padding-left: 100px;
+  letter-spacing: 3px;
+  color: #f6f6ce;
+  background-color: #721e1c;
+}
+
+.bu-link {
+  color: #f6f6ce;
+  text-decoration: none;
+}
+
+.bu-link:hover {
+  text-decoration: underline;
+}
+
+.nav-style {
+  color: #f6f6ce;
+  background-color: #721e1c;
+}
