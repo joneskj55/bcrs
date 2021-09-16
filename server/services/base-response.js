@@ -7,17 +7,17 @@
 
 class BaseResponse{
   //This aligns all of the received codes to the class variables.
-  constructor(code, msg, data){
-    this.code = code;
-    this.msg = msg;
+  constructor(httpCode, message, data){
+    this.httpCode = httpCode;
+    this.message = message;
     this.data = data;
   }
 
   // The toObject allows us to return the mapped variables.
   toObject(){
     return{
-      'code': this.code,
-      'msg': this.msg,
+      'httpCode': this.httpCode,
+      'message': this.message,
       'data': this.data,
       'timestamp': new Date().toLocaleDateString
     }

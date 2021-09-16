@@ -9,14 +9,13 @@
 
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-const Question = require('./security-question');
-const Answer = require('./security-question')
+
 
 //Defining the Security Question Schema
 
-const securityQuestions = new Schema({
-  question:[Question],
-  answer: Answer
-})
+const securityQuestionSchema = new Schema({
+  text: {type: String},
+  isDisabled: {type: Boolean, default: false}
+}, {collection: 'securityQuestions'})
 
-module.exports = mongoose.model("Security Questions", securityQuestions);
+module.exports = mongoose.model("Security Questions", securityQuestionSchema);
