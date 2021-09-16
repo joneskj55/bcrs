@@ -134,32 +134,63 @@ router.post("/", async (req, res) => {
       role: standardRole,
     };
 
-    // create a new user
-    User.create(newUser, function (err, user) {
+    // check if the user already exists
+    User.findOne({ userName: req.body.userName }, function (err, user) {
       // if there is an error
       if (err) {
         console.log(err); // log the error
         // return an error response
-        const createUserMongodbErrorResponse = new ErrorResponse(
+        const createMongodbErrorResponse = new ErrorResponse(
           500,
           "Internal server error",
           err
         );
         // send the error response
-        res.status(500).send(createUserMongodbErrorResponse.toObject());
+        res.status(500).send(createMongodbErrorResponse.toObject());
         // if there is no error
       } else {
-        console.log(user); // log the user
-        // return a success response
-        const createUserResponse = new BaseResponse(
-          200,
-          "Query successful",
-          user
-        );
-        // send the response
-        res.json(createUserResponse.toObject());
+        // if the user already exists
+        if (user) {
+          // return an error response
+          const createUserAlreadyExistsErrorResponse = new ErrorResponse(
+            400,
+            "User already exists",
+            "User already exists"
+          );
+          // send the error response
+          res.status(400).send(createUserAlreadyExistsErrorResponse.toObject());
+          // if the user does not exist
+        } else {
+          // create the user
+          User.create(newUser, function (err, user) {
+            // if there is an error
+            if (err) {
+              console.log(err); // log the error
+              // return an error response
+              const createMongodbErrorResponse = new ErrorResponse(
+                500,
+                "Internal server error",
+                err
+              );
+              // send the error response
+              res.status(500).send(createMongodbErrorResponse.toObject());
+              // if there is no error
+            } else {
+              console.log(user); // log the user
+              // return a success response
+              const createUserResponse = new BaseResponse(
+                201,
+                "User created",
+                user
+              );
+              // send the response
+              res.json(createUserResponse.toObject());
+            }
+          });
+        }
       }
     });
+
     // if there is an error
   } catch (e) {
     console.log(e); // log the error
