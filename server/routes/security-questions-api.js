@@ -47,3 +47,33 @@ router.get('/', async( req, res) =>{
     res.status(500).send(findAllCatchErrorResponse.toObject());
   }
 });
+
+/**
+ * FindByID
+ */
+
+router.get('/:id', async(req, res)=> {
+  try
+  {
+    SecurityQuestion.findONe({'_id': req.params.id}, function(err, securityQuestion){
+      if(err)
+      {
+        console.log(err);
+        const findByIdMongodbErrorResponse = new ErrorResponse(500, 'Internal Server Error', err);
+        res.status(500).send(findByIdMongodbErrorResponse.toObject());
+      }
+      else
+      {
+        console.log(securityQuestion);
+        const findByIdResponse = new BaseResponse(200, 'Query Successful', securityQuestion);
+        res.json(findByIdResponse.toObject());
+      }
+    })
+  }
+  catch(e)
+  {
+    console.log(e);
+    const findByIdCatchErrorResponse = new ErrorResponse(500, 'Internal Server Error', e.message);
+    res.status(500).send(findByIdCatchErrorResponse.toObject());
+  }
+})

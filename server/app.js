@@ -19,6 +19,12 @@ const path = require("path");
 const mongoose = require("mongoose");
 
 /**
+ * Routes Configuration
+ */
+
+const SecurityQuestionApi = require('./routes/security-questions-api')
+
+/**
  * App configurations
  */
 let app = express();
@@ -56,6 +62,8 @@ mongoose
 /**
  * API(s) go here...
  */
+
+app.use('/api/security-questions', SecurityQuestionApi);
 
 /**
  * Create and start server
