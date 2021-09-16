@@ -17,6 +17,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { SignInComponent } from './pages/sign-in/sign-in.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
+import { DeleteRecordDialogComponent } from './shared/delete-record-dialog/delete-record-dialog.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { MatInputModule } from '@angular/material/input';
     HomeComponent,
     BaseLayoutComponent,
     AuthLayoutComponent,
-    SignInComponent
+    SignInComponent,
+    DeleteRecordDialogComponent
   ],
   imports: [
     BrowserModule,

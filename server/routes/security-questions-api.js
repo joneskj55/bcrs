@@ -47,3 +47,70 @@ router.get('/', async( req, res) =>{
     res.status(500).send(findAllCatchErrorResponse.toObject());
   }
 });
+
+/**
+ * FindByID
+ */
+
+router.get('/:id', async(req, res)=> {
+  try
+  {
+    SecurityQuestion.findONe({'_id': req.params.id}, function(err, securityQuestion){
+      if(err)
+      {
+        console.log(err);
+        const findByIdMongodbErrorResponse = new ErrorResponse(500, 'Internal Server Error', err);
+        res.status(500).send(findByIdMongodbErrorResponse.toObject());
+      }
+      else
+      {
+        console.log(securityQuestion);
+        const findByIdResponse = new BaseResponse(200, 'Query Successful', securityQuestion);
+        res.json(findByIdResponse.toObject());
+      }
+    })
+  }
+  catch(e)
+  {
+    console.log(e);
+    const findByIdCatchErrorResponse = new ErrorResponse(500, 'Internal Server Error', e.message);
+    res.status(500).send(findByIdCatchErrorResponse.toObject());
+  }
+})
+
+/**
+ * CreateSecurityQuestion
+ */
+
+router.post('/', async(req, res)=>{
+  try
+  {
+    let newSecurityQuestion = {
+      text: req.body.text
+    };
+
+    SecurityQuestion.create(newSecurityQuestion, function(err, securityQuestion){
+      if (err)
+      {
+        console.log(err);
+        const createSecurityQuestionMongodbErrorResponse =  new ErrorResponse(500, 'Internal Server Error', err);
+        res.status(500).send(createSecurityQuestionMongodbErrorResponse.toObject());
+      }
+      else
+      {
+        console.log(securityQuestion);
+        const createSecurityQuestionResponse = new BaseResponse(200, 'Query Successful', securityQuestion);
+        res.json(createSecurityQuestionResponse.toObject());
+      }
+    })
+  }
+  catch(e)
+  {
+    console.log(e);
+    const createSecurityQuestionCatchErrorResponse = new ErrorResponse(500, 'Internal Server Error', e.message);
+    res.status(500).send(createSecurityQuestionCatchErrorResponse.toObject());
+  }
+})
+
+
+module.exports = router;
