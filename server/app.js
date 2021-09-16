@@ -23,7 +23,7 @@ const mongoose = require("mongoose");
  */
 const UserApi = require("./routes/user-api");
 // const SessionApi = require("./routes/session-api");
-const SecurityQuestionApi = require("./routes/security-question-api");
+const SecurityQuestionApi = require("./routes/security-questions-api");
 
 /**
  * App configurations
