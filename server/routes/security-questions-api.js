@@ -111,3 +111,6 @@ router.post('/', async(req, res)=>{
     res.status(500).send(createSecurityQuestionCatchErrorResponse.toObject());
   }
 })
+
+
+module.exports = router;
