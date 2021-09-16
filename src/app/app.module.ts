@@ -14,6 +14,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DeleteRecordDialogComponent } from './shared/delete-record-dialog/delete-record-dialog.component';
+import { SecurityQuestionListComponent } from './pages/security-question-list/security-question-list.component';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,8 @@ import { DeleteRecordDialogComponent } from './shared/delete-record-dialog/delet
     HomeComponent,
     BaseLayoutComponent,
     AuthLayoutComponent,
-    DeleteRecordDialogComponent
+    DeleteRecordDialogComponent,
+    SecurityQuestionListComponent
   ],
   imports: [
     BrowserModule,
@@ -34,6 +37,7 @@ import { DeleteRecordDialogComponent } from './shared/delete-record-dialog/delet
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
