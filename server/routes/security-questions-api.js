@@ -77,3 +77,40 @@ router.get('/:id', async(req, res)=> {
     res.status(500).send(findByIdCatchErrorResponse.toObject());
   }
 })
+
+/**
+ * CreateSecurityQuestion
+ */
+
+router.post('/', async(req, res)=>{
+  try
+  {
+    let newSecurityQuestion = {
+      text: req.body.text
+    };
+
+    SecurityQuestion.create(newSecurityQuestion, function(err, securityQuestion){
+      if (err)
+      {
+        console.log(err);
+        const createSecurityQuestionMongodbErrorResponse =  new ErrorResponse(500, 'Internal Server Error', err);
+        res.status(500).send(createSecurityQuestionMongodbErrorResponse.toObject());
+      }
+      else
+      {
+        console.log(securityQuestion);
+        const createSecurityQuestionResponse = new BaseResponse(200, 'Query Successful', securityQuestion);
+        res.json(createSecurityQuestionResponse.toObject());
+      }
+    })
+  }
+  catch(e)
+  {
+    console.log(e);
+    const createSecurityQuestionCatchErrorResponse = new ErrorResponse(500, 'Internal Server Error', e.message);
+    res.status(500).send(createSecurityQuestionCatchErrorResponse.toObject());
+  }
+})
+
+
+module.exports = router;
