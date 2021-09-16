@@ -9,13 +9,13 @@
 
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-const UserRoleSchema = require("../schemas/user-role");
+// const UserRoleSchema = require("../schemas/user-role");
 const SelectedSecurityQuestionSchema = require("../schemas/selected-security-question");
 
 // Define the user schema
 const userSchema = new Schema(
   {
-    username: { type: String, required: true, unique: true, dropDups: true },
+    userName: { type: String, required: true, unique: true, dropDups: true },
     password: { type: String, required: true },
     firstName: { type: String },
     lastName: { type: String },
@@ -25,7 +25,7 @@ const userSchema = new Schema(
     zipCode: { type: String },
     email: { type: String },
     isDisabled: { type: Boolean, default: false },
-    role: UserRoleSchema,
+    // role: UserRoleSchema,
     selectedSecurityQuestions: [SelectedSecurityQuestionSchema],
     dateCreated: { type: Date, default: new Date() },
     dateModified: { type: Date },

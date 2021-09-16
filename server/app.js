@@ -19,6 +19,13 @@ const path = require("path");
 const mongoose = require("mongoose");
 
 /**
+ * Routes
+ */
+const UserApi = require("./routes/user-api");
+// const SessionApi = require("./routes/session-api");
+const SecurityQuestionApi = require("./routes/security-question-api");
+
+/**
  * App configurations
  */
 let app = express();
@@ -56,6 +63,8 @@ mongoose
 /**
  * API(s) go here...
  */
+app.use("/api/users", UserApi);
+app.use("/api/security-questions", SecurityQuestionApi);
 
 /**
  * Create and start server
