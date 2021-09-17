@@ -8,6 +8,7 @@ import { AuthGuard } from './shared/auth.guard';
 import { UserListComponent } from './pages/user-list/user-list.component';
 import { SecurityQuestionListComponent } from './pages/security-question-list/security-question-list.component';
 import { UserCreateComponent } from './pages/user-create/user-create.component';
+import { UserDetailsComponent } from './pages/user-details/user-details.component';
 
 const routes: Routes = [
   {
@@ -23,7 +24,11 @@ const routes: Routes = [
         component: UserListComponent,
       },
       {
-        path: 'user-create',
+        path: 'users/:userId',
+        component: UserDetailsComponent,
+      },
+      {
+        path: 'users/create/new',
         component: UserCreateComponent,
       },
       {
@@ -31,7 +36,7 @@ const routes: Routes = [
         component: SecurityQuestionListComponent,
       },
     ],
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
   },
   {
     path: 'session',
@@ -39,10 +44,10 @@ const routes: Routes = [
     children: [
       {
         path: 'signin',
-        component: SignInComponent
-      }
-    ]
-  }
+        component: SignInComponent,
+      },
+    ],
+  },
 ];
 
 @NgModule({

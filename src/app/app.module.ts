@@ -23,6 +23,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { UserListComponent } from './pages/user-list/user-list.component';
 import { UserCreateComponent } from './pages/user-create/user-create.component';
+import { UserDetailsComponent } from './pages/user-details/user-details.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { UserCreateComponent } from './pages/user-create/user-create.component';
     SecurityQuestionListComponent,
     UserListComponent,
     UserCreateComponent,
+    UserDetailsComponent,
   ],
   imports: [
     BrowserModule,
