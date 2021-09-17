@@ -13,10 +13,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatFormFieldModule } from '@angular/material/form-field';
 import { SignInComponent } from './pages/sign-in/sign-in.component';
 import { MatCardModule } from '@angular/material/card';
-import { MatInputModule } from '@angular/material/input';
 import { DeleteRecordDialogComponent } from './shared/delete-record-dialog/delete-record-dialog.component';
 import { SecurityQuestionListComponent } from './pages/security-question-list/security-question-list.component';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -54,8 +52,6 @@ import { UserCreateComponent } from './pages/user-create/user-create.component';
     MatInputModule,
     MatDialogModule,
     MatTableModule,
-    MatFormFieldModule,
-    MatInputModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
