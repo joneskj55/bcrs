@@ -19,6 +19,9 @@ import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { DeleteRecordDialogComponent } from './shared/delete-record-dialog/delete-record-dialog.component';
 import { SecurityQuestionListComponent } from './pages/security-question-list/security-question-list.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatTableModule } from '@angular/material/table';
+import { UserListComponent } from './pages/user-list/user-list.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,8 @@ import { SecurityQuestionListComponent } from './pages/security-question-list/se
     AuthLayoutComponent,
     SignInComponent,
     DeleteRecordDialogComponent,
-    SecurityQuestionListComponent
+    SecurityQuestionListComponent,
+    UserListComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,9 +47,11 @@ import { SecurityQuestionListComponent } from './pages/security-question-list/se
     ReactiveFormsModule,
     MatCardModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatDialogModule,
+    MatTableModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
