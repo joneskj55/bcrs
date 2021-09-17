@@ -18,6 +18,7 @@ import { SignInComponent } from './pages/sign-in/sign-in.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { DeleteRecordDialogComponent } from './shared/delete-record-dialog/delete-record-dialog.component';
+import { SecurityQuestionListComponent } from './pages/security-question-list/security-question-list.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { DeleteRecordDialogComponent } from './shared/delete-record-dialog/delet
     BaseLayoutComponent,
     AuthLayoutComponent,
     SignInComponent,
-    DeleteRecordDialogComponent
+    DeleteRecordDialogComponent,
+    SecurityQuestionListComponent
   ],
   imports: [
     BrowserModule,
