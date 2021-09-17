@@ -24,7 +24,6 @@ import { MatInputModule } from '@angular/material/input';
 import { UserListComponent } from './pages/user-list/user-list.component';
 import { UserCreateComponent } from './pages/user-create/user-create.component';
 import { UserDetailsComponent } from './pages/user-details/user-details.component';
-import { SecurityQuestionDetailsComponent } from './pages/security-question-details/security-question-details.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +37,6 @@ import { SecurityQuestionDetailsComponent } from './pages/security-question-deta
     UserListComponent,
     UserCreateComponent,
     UserDetailsComponent,
-    SecurityQuestionDetailsComponent,
   ],
   imports: [
     BrowserModule,
