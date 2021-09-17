@@ -1,3 +1,13 @@
+/*
+============================================
+; Title:  user-list.component.ts
+; Author: Professor Krasso
+; Modified by: Kevin Jones
+; Date: 17 Sep 2021
+; Description: User list component file
+;===========================================
+*/
+
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { HttpClient } from '@angular/common/http';

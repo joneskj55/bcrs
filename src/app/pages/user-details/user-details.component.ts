@@ -1,3 +1,13 @@
+/*
+============================================
+; Title:  user-details.component.ts
+; Author: Professor Krasso
+; Modified by: Kevin Jones
+; Date: 17 Sep 2021
+; Description: Sign-in component file
+;===========================================
+*/
+
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';

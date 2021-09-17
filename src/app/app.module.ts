@@ -1,3 +1,13 @@
+/*
+============================================
+; Title:  app.module.ts
+; Author: Professor Krasso
+; Modified by: Fred Marble, Tony Henderson, Kevin Jones
+; Date: 17 Sep 2021
+; Description: App module
+;===========================================
+*/
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 

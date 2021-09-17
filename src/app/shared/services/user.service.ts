@@ -1,3 +1,13 @@
+/*
+============================================
+; Title:  user.service.ts
+; Author: Professor Krasso
+; Modified by: Kevin Jones
+; Date: 17 Sep 2021
+; Description: User service file
+;===========================================
+*/
+
 import { Injectable } from '@angular/core';
 import { User } from './../interfaces/user.interface';
 import { HttpClient } from '@angular/common/http';

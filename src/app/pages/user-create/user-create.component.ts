@@ -1,3 +1,13 @@
+/*
+============================================
+; Title:  user-create.component.ts
+; Author: Professor Krasso
+; Modified by: Kevin Jones
+; Date: 17 Sep 2021
+; Description: Create user component file
+;===========================================
+*/
+
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
