@@ -112,5 +112,51 @@ router.post('/', async(req, res)=>{
   }
 })
 
+/**
+ * DeleteSecurityQuestion
+ */
+
+router.delete('/:id', async (req, res)=>{
+  try
+  {
+    SecurityQuestion.findOne({'_id': req.params.id}, function(err, securityQuestion){
+      if (err)
+      {
+        console.log(err);
+        const deleteSecurityQuestionMongodbErrorResponse = new ErrorResponse(500, 'Internal Server Error', err);
+        res.status(500).send(deleteSecurityQuestionMongodbErrorResponse.toObject());
+      }
+      else
+      {
+        console.log(securityQuestion);
+
+        securityQuestion.set({
+          isDisabled: true
+        });
+
+        securityQuestion.save(function (err, savedSecurityQuestion){
+          if (err)
+          {
+            console.log(err);
+            const savedSecurityQuestionMongodbErrorResponse = new ErrorResponse(500, 'Internal Server Error', err );
+            res.status(500).send(savedSecurityQuestionMongodbErrorResponse.toObject());
+          }
+          else
+          {
+            console.log(savedSecurityQuestion);
+            const deleteSecurityQuestionResponse = new BaseResponse(200, 'Query Successful', savedSecurityQuestion);
+            res.json(deleteSecurityQuestionResponse.toObject());
+          }
+        })
+      }
+    })
+  }
+  catch (e)
+  {
+    console.log(e);
+    const deleteSecurityQuestionCatchErrorResponse = new ErrorResponse(500, 'Internal Server Error', e.message)
+    res.status(500).send(deleteSecurityQuestionCatchErrorResponse.toObject());
+  }
+})
 
 module.exports = router;
