@@ -2,6 +2,9 @@ import { HomeComponent } from './pages/home/home.component';
 import { BaseLayoutComponent } from './shared/base-layout/base-layout.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AuthLayoutComponent } from './shared/auth-layout/auth-layout.component';
+import { SignInComponent } from './pages/sign-in/sign-in.component';
+import { AuthGuard } from './shared/auth.guard';
 import { UserListComponent } from './pages/user-list/user-list.component';
 import { SecurityQuestionListComponent } from './pages/security-question-list/security-question-list.component';
 import { UserCreateComponent } from './pages/user-create/user-create.component';
@@ -28,7 +31,18 @@ const routes: Routes = [
         component: SecurityQuestionListComponent,
       },
     ],
+    canActivate: [AuthGuard]
   },
+  {
+    path: 'session',
+    component: AuthLayoutComponent,
+    children: [
+      {
+        path: 'signin',
+        component: SignInComponent
+      }
+    ]
+  }
 ];
 
 @NgModule({

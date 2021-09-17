@@ -13,9 +13,12 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { SignInComponent } from './pages/sign-in/sign-in.component';
+import { MatCardModule } from '@angular/material/card';
+import { MatInputModule } from '@angular/material/input';
 import { DeleteRecordDialogComponent } from './shared/delete-record-dialog/delete-record-dialog.component';
 import { SecurityQuestionListComponent } from './pages/security-question-list/security-question-list.component';
-import { MatCardModule } from '@angular/material/card';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatTableModule } from '@angular/material/table';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -29,6 +32,7 @@ import { UserCreateComponent } from './pages/user-create/user-create.component';
     HomeComponent,
     BaseLayoutComponent,
     AuthLayoutComponent,
+    SignInComponent,
     DeleteRecordDialogComponent,
     SecurityQuestionListComponent,
     UserListComponent,
@@ -46,6 +50,8 @@ import { UserCreateComponent } from './pages/user-create/user-create.component';
     FormsModule,
     ReactiveFormsModule,
     MatCardModule,
+    MatFormFieldModule,
+    MatInputModule,
     MatDialogModule,
     MatTableModule,
     MatFormFieldModule,

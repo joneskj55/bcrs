@@ -24,6 +24,7 @@ const mongoose = require("mongoose");
 const UserApi = require("./routes/user-api");
 // const SessionApi = require("./routes/session-api");
 const SecurityQuestionApi = require("./routes/security-questions-api");
+const SessionApi = require("./routes/session-api");
 
 /**
  * App configurations
@@ -38,7 +39,7 @@ app.use("/", express.static(path.join(__dirname, "../dist/bcrs")));
 /**
  * Variables
  */
-const port = 3000; // server port
+const port = process.env.PORT || 3000; // server port
 
 // TODO: This line will need to be replaced with your actual database connection string
 const conn =
@@ -65,6 +66,7 @@ mongoose
  */
 app.use("/api/users", UserApi);
 app.use("/api/security-questions", SecurityQuestionApi);
+app.use("/api/session", SessionApi);
 
 /**
  * Create and start server
