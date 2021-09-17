@@ -18,7 +18,10 @@ import { SecurityQuestionListComponent } from './pages/security-question-list/se
 import { MatCardModule } from '@angular/material/card';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatTableModule } from '@angular/material/table';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 import { UserListComponent } from './pages/user-list/user-list.component';
+import { UserCreateComponent } from './pages/user-create/user-create.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +32,7 @@ import { UserListComponent } from './pages/user-list/user-list.component';
     DeleteRecordDialogComponent,
     SecurityQuestionListComponent,
     UserListComponent,
+    UserCreateComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,6 +48,8 @@ import { UserListComponent } from './pages/user-list/user-list.component';
     MatCardModule,
     MatDialogModule,
     MatTableModule,
+    MatFormFieldModule,
+    MatInputModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
