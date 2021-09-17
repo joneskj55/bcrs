@@ -5,6 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AuthLayoutComponent } from './shared/auth-layout/auth-layout.component';
 import { SignInComponent } from './pages/sign-in/sign-in.component';
 import { AuthGuard } from './shared/auth.guard';
+import { SecurityQuestionListComponent } from './pages/security-question-list/security-question-list.component';
 
 const routes: Routes = [
   {
@@ -14,7 +15,11 @@ const routes: Routes = [
       {
         path: '',
         component: HomeComponent,
-      }
+      },
+      {
+        path: 'security-questions',
+        component: SecurityQuestionListComponent
+      },
     ],
     canActivate: [AuthGuard]
   },
