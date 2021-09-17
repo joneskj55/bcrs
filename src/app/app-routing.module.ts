@@ -2,6 +2,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { BaseLayoutComponent } from './shared/base-layout/base-layout.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { UserListComponent } from './pages/user-list/user-list.component';
 
 const routes: Routes = [
   {
@@ -10,14 +11,25 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        component: HomeComponent
-      }
-    ]
-  }
+        component: HomeComponent,
+      },
+      {
+        path: 'users',
+        component: UserListComponent,
+      },
+    ],
+  },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { useHash: true, enableTracing: false, scrollPositionRestoration: 'enabled', relativeLinkResolution: 'legacy' })],
-  exports: [RouterModule]
+  imports: [
+    RouterModule.forRoot(routes, {
+      useHash: true,
+      enableTracing: false,
+      scrollPositionRestoration: 'enabled',
+      relativeLinkResolution: 'legacy',
+    }),
+  ],
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
