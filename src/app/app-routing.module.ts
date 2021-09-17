@@ -2,6 +2,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { BaseLayoutComponent } from './shared/base-layout/base-layout.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { SecurityQuestionListComponent } from './pages/security-question-list/security-question-list.component';
 
 const routes: Routes = [
   {
@@ -11,7 +12,12 @@ const routes: Routes = [
       {
         path: '',
         component: HomeComponent
-      }
+      },
+      {
+        path: 'security-questions',
+        component: SecurityQuestionListComponent
+      },
+
     ]
   }
 ];
