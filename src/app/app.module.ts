@@ -36,6 +36,7 @@ import { UserCreateComponent } from './pages/user-create/user-create.component';
 import { UserDetailsComponent } from './pages/user-details/user-details.component';
 import { SecurityQuestionDetailsComponent } from './pages/security-question-details/security-question-details.component';
 import { SecurityQuestionCreateComponent } from './pages/security-question-create/security-question-create.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 
 @NgModule({
   declarations: [
@@ -68,6 +69,7 @@ import { SecurityQuestionCreateComponent } from './pages/security-question-creat
     MatInputModule,
     MatDialogModule,
     MatTableModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent],
