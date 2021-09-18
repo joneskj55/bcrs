@@ -32,6 +32,7 @@ export class UserCreateComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    // create form with validators
     this.form = this.fb.group({
       userName: [null, Validators.compose([Validators.required])],
       password: [
@@ -52,6 +53,7 @@ export class UserCreateComponent implements OnInit {
     });
   }
 
+  // create user
   createUser(): void {
     const newUser: User = {
       userName: this.form.controls.userName.value,
@@ -63,16 +65,24 @@ export class UserCreateComponent implements OnInit {
       email: this.form.controls.email.value,
     };
 
+    // call service to create user
     this.userService.createUser(newUser).subscribe(
+      // if successful, redirect to user list
       (res) => {
         this.router.navigate(['/users']);
       },
+      // if error, display error message
       (err) => {
         console.log(err);
+        // if the user is in the database, show the alert
+        window.alert(
+          'Username is already in use, please select a different Username'
+        );
       }
     );
   }
 
+  // close form and go back to user list
   cancel(): void {
     this.router.navigate(['/users']);
   }

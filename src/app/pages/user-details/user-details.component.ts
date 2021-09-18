@@ -31,14 +31,19 @@ export class UserDetailsComponent implements OnInit {
     private router: Router,
     private userService: UserService
   ) {
+    // Get the user id from the url
     this.userId = this.route.snapshot.paramMap.get('userId');
 
+    // Get the user from the user service
     this.userService.findUserById(this.userId).subscribe(
+      // Success
       (res) => {
+        // Assign the user to the user property
         this.user = res['data'];
       },
+      // Error
       (err) => {
-        console.log(err);
+        console.log(err); // Log the error
       },
       () => {
         this.form.controls.firstName.setValue(this.user.firstName);
@@ -51,6 +56,7 @@ export class UserDetailsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    // Create the form with validators
     this.form = this.fb.group({
       firstName: [null, Validators.compose([Validators.required])],
       lastName: [null, Validators.compose([Validators.required])],
@@ -64,6 +70,7 @@ export class UserDetailsComponent implements OnInit {
   }
 
   saveUser(): void {
+    // Get the form values
     const updatedUser: User = {
       firstName: this.form.controls.firstName.value,
       lastName: this.form.controls.lastName.value,
@@ -72,16 +79,21 @@ export class UserDetailsComponent implements OnInit {
       email: this.form.controls.email.value,
     };
 
+    // Update the user
     this.userService.updateUser(this.userId, updatedUser).subscribe(
+      // Success
       (res) => {
+        // Redirect to the users page
         this.router.navigate(['/users']);
       },
+      // Error
       (err) => {
-        console.log(err);
+        console.log(err); // Log the error
       }
     );
   }
 
+  // Cancel the update
   cancel(): void {
     this.router.navigate(['/users']);
   }

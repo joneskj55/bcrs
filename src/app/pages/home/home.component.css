@@ -1,14 +1,22 @@
+/*
+============================================
+; Title:  home.component.css
+; Author: Professor Krasso
+; Date: 18 Sep 2021
+; Description: Home component CSS file
+;===========================================
+*/
+
 .main-welcome {
-    margin-top: 30px;
-  }
-  
-  .title {
-    text-align: center;
-    font-weight: lighter;
-  }
-  
-  .subtitle {
-    text-align: center;
-    font-size: 14px;
-  }
-  
+  margin-top: 30px;
+}
+
+.title {
+  text-align: center;
+  font-weight: lighter;
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 14px;
+}

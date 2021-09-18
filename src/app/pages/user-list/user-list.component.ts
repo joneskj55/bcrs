@@ -36,19 +36,24 @@ export class UserListComponent implements OnInit {
     private dialog: MatDialog,
     private userService: UserService
   ) {
+    // find all users
     this.userService.findAllUsers().subscribe(
+      // subscribe to the response
       (res) => {
+        // set the users to the response
         this.users = res['data'];
-        console.log(this.users);
+        console.log(this.users); // log the users
       },
+      // if there is an error
       (err) => {
-        console.log(err);
+        console.log(err); // log the error
       }
     );
   }
 
   ngOnInit(): void {}
 
+  // get the user by id and open the delete dialog
   delete(userId: string, recordId: string): void {
     const dialogRef = this.dialog.open(DeleteRecordDialogComponent, {
       data: {
@@ -60,10 +65,13 @@ export class UserListComponent implements OnInit {
       width: '800px',
     });
 
+    // when the dialog is closed
     dialogRef.afterClosed().subscribe((result) => {
+      // if the user clicks the yes button
       if (result === 'confirm') {
+        // delete the user
         this.userService.deleteUser(userId).subscribe((res) => {
-          console.log(`User delete`);
+          console.log(`User delete`); // log the response
           this.users = this.users.filter((u) => u._id !== userId);
         });
       }
