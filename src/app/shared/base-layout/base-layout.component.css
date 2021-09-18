@@ -2,7 +2,7 @@
 ============================================
 ; Title:  base-layout.component.css
 ; Author: Professor Krasso
-; Modified by: Kevin Jones
+; Modified by: Kevin Jones, George Henderson
 ; Date: 18 Sep 2020
 ; Description: Base layout component CSS file
 ;===========================================
@@ -16,6 +16,7 @@
 
 .navbar-container {
   padding: 5px;
+  width: 100%;
 }
 
 .navbar-link {
@@ -54,4 +55,12 @@
 .nav-style {
   color: #f6f6ce;
   background-color: #721e1c;
+}
+
+.btn:focus {
+  box-shadow: none;
+}
+
+.dropDownItem button {
+  font-size: 1.2em;
 }
