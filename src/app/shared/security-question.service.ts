@@ -30,4 +30,14 @@ export class SecurityQuestionService {
       text: newSecurityQuestion.text
     })
   }
+
+  updateSecurityQuestion(questionId: string, updatedSecurityQuestion: SecurityQuestion): Observable<any>{
+    return this.http.put('/api/security-questions/'+ questionId, {
+      text: updatedSecurityQuestion.text
+    })
+  }
+
+  deleteSecurityQuestion(questionId: string): Observable<any>{
+    return this.http.delete('/api/security-questions/'+ questionId);
+  }
 }

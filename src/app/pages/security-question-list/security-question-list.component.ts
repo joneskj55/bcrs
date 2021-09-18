@@ -33,4 +33,26 @@ export class SecurityQuestionListComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  delete(recordId: string): void {
+    const dialogRef = this.dialog.open(DeleteRecordDialogComponent,{
+      data:{
+        recordId,
+        dialogHeader: 'Delete Record Dialog',
+        dialogBody: `Are you sure you want to delete teh selected security question?`
+      },
+      disableClose: true,
+      width: '800px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result === 'confirm')
+      {
+        this.securityQuestionService.deleteSecurityQuestion(recordId).subscribe( res =>{
+          console.log('Security Question deleted');
+          this.securityQuestions = this.securityQuestions.filter(q => q._id !== recordId);
+        })
+      }
+    })
+  }
+
 }
