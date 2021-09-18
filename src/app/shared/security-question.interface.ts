@@ -7,6 +7,6 @@
 
 //Sets up the Security Question interface
 export interface SecurityQuestion{
-  _id: string;
+  _id?: string;
   text: string;
 }
