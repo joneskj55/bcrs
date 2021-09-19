@@ -55,7 +55,7 @@ router.get('/', async( req, res) =>{
 router.get('/:id', async(req, res)=> {
   try
   {
-    SecurityQuestion.findOne({'_id': req.params._id}, function(err, securityQuestion){
+    SecurityQuestion.findOne({'_id': req.params.id}, function(err, securityQuestion){
       if(err)
       {
         console.log(err);
@@ -119,7 +119,7 @@ router.post('/', async(req, res)=>{
 router.put('/:id', async(req, res) => {
   try
   {
-    SecurityQuestion.findOne({'_id': req.params._id}, function(err, securityQuestion){
+    SecurityQuestion.findOne({'_id': req.params.id}, function(err, securityQuestion){
       if(err)
       {
         console.log(err);
@@ -165,7 +165,7 @@ router.put('/:id', async(req, res) => {
 router.delete('/:id', async (req, res)=>{
   try
   {
-    SecurityQuestion.findOne({'_id': req.params._id}, function(err, securityQuestion){
+    SecurityQuestion.findOne({'_id': req.params.id}, function(err, securityQuestion){
       if (err)
       {
         console.log(err);
