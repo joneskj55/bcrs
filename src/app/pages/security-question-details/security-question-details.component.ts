@@ -23,7 +23,7 @@ export class SecurityQuestionDetailsComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private fb: FormBuilder, private router: Router,
               private securityQuestionService: SecurityQuestionService) {
-      this.questionId = this.route.snapshot.paramMap.get('questionId');
+      this.questionId = this.route.snapshot.paramMap.get('id');
 
       this.securityQuestionService.findSecurityQuestionById(this.questionId).subscribe(res =>{
         this.question = res['data'];
