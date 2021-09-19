@@ -2,45 +2,70 @@
 ; Title: Sign-In HTML
 ; Date: 15 September 2021
 ; Author: George Henderson
+; Modified by: Kevin Jones
 ; Description: HTML template for the 'sign-in' component.
 ----------------------------->
 
 <div fxLayout="column" class="cardContainer">
   <mat-card id="formCard" class="mat-elevation-z8">
     <mat-card-title>Employee Sign In</mat-card-title>
-    <mat-card-subtitle fxLayoutAlign="end"><a routerLink="">Create an Account</a></mat-card-subtitle>
+    <mat-card-subtitle fxLayoutAlign="end"
+      ><a routerLink="" style="color: #721e1ce0"
+        >Create an Account</a
+      ></mat-card-subtitle
+    >
 
     <mat-card-content>
-      <form [formGroup]="signinForm"  (ngSubmit)="signIn()" fxLayout="column">
-
+      <form [formGroup]="signinForm" (ngSubmit)="signIn()" fxLayout="column">
         <mat-form-field fxFlex>
           <mat-label>Enter Username</mat-label>
-          <input type="text" matInput formControlName="username">
-          <mat-error *ngIf="signinForm.controls.username.hasError('required') && signinForm.controls.username.touched">
+          <input type="text" matInput formControlName="username" />
+          <mat-error
+            *ngIf="
+              signinForm.controls.username.hasError('required') &&
+              signinForm.controls.username.touched
+            "
+          >
             Username is a required field.
           </mat-error>
         </mat-form-field>
 
         <mat-form-field fxFlex>
           <mat-label>Enter Password</mat-label>
-          <input type="password" matInput formControlName="password">
-          <mat-error *ngIf="signinForm.controls.password.hasError('required') && signinForm.controls.password.touched">
+          <input type="password" matInput formControlName="password" />
+          <mat-error
+            *ngIf="
+              signinForm.controls.password.hasError('required') &&
+              signinForm.controls.password.touched
+            "
+          >
             Password is a required field.
           </mat-error>
-          <mat-error *ngIf="signinForm.controls.password.hasError('pattern') && signinForm.controls.password.touched">
-            Password must be at least 8 characters, contain one letter, and one number.
+          <mat-error
+            *ngIf="
+              signinForm.controls.password.hasError('pattern') &&
+              signinForm.controls.password.touched
+            "
+          >
+            Password must be at least 8 characters, contain one letter, and one
+            number.
           </mat-error>
         </mat-form-field>
 
-        <div *ngIf="error" fxLayoutAlign="end" style="color: red;">
+        <div *ngIf="error" fxLayoutAlign="end" style="color: red">
           {{ error }}
         </div>
 
         <mat-card-actions fxLayoutGap="20px" fxLayoutAlign="end center">
-          <a routerLink="">Forgot Password</a>
-          <button mat-raised-button color="primary" [disabled]="!signinForm.valid">Sign In</button>
+          <a routerLink="" style="color: #721e1ce0">Forgot Password</a>
+          <button
+            mat-raised-button
+            color="gryffindor"
+            [disabled]="!signinForm.valid"
+          >
+            Sign In
+          </button>
         </mat-card-actions>
-
       </form>
     </mat-card-content>
   </mat-card>

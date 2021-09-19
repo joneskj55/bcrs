@@ -1,4 +1,36 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.mat-gryffindor {
+  background-color: #721e1c;
+  color: #f5f6ce;
+}
+
+.mat-gryffindor:hover {
+  background-color: #721e1ce0;
+}
+
+.mat-secondary {
+  background-color: #eead3d;
+  color: #721e1c;
+}
+
+.mat-secondary:hover {
+  background-color: #eead3de0;
+}
+
+.mat-gryffindor-icon {
+  color: #721e1c;
+}
+
+.mat-secondary-icon {
+  color: #eead3d;
+}
