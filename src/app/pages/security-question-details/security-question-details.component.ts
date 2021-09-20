@@ -2,6 +2,7 @@
  * Date: 17 September 2021
  * Title: security-question-details.component
  * Author: Fred Marble
+ * Modified By: George Henderson
  * Description: Creating the Security Question Details component.
  */
 import { Component, OnInit } from '@angular/core';

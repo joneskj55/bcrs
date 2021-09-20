@@ -23,6 +23,9 @@ export class SignInComponent implements OnInit {
 
   constructor(private fb : FormBuilder, private cookieService: CookieService, private router: Router, private http: HttpClient) { }
 
+  /**
+   * Creates the signinForm: 'username' & 'password'
+   */
   ngOnInit(): void {
     this.signinForm = this.fb.group({
       username: ['', Validators.compose([Validators.required])],
@@ -31,6 +34,10 @@ export class SignInComponent implements OnInit {
 
   }
 
+  /**
+   * Sends a POST request with the users given credentials
+   * If the user is authenticated, send them to home page otherwise display proper error.
+   */
   signIn() {
     const userName =  this.signinForm.controls.username.value;
     const password = this.signinForm.controls.password.value;
@@ -40,13 +47,16 @@ export class SignInComponent implements OnInit {
       password
     };
 
+    // Authenticate User
     try {
       this.http.post('api/session/signin', user).subscribe( res => {
         // User is authenticated
         if (res['data'].auth) {
+          // Give user cookie: 'session_user' set to their username.
           this.cookieService.set('session_user', res['data'].userName)
           this.router.navigate(['/']);
         }
+        // Error
         }, err => {
           this.error = err.error.message
         })
