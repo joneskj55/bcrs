@@ -1,0 +1,52 @@
+/*========================
+; Title: Sign-In Styles
+; Date: 17 September 2021
+; Author: George Henderson
+; Description: Styling for the sign-in component.
+========================*/
+
+.cardContainer  {
+  height: 100%;
+  background: url('../../../assets/Gryffindor_Background.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#formCard {
+  margin: 10% auto;
+  min-width: 40%;
+  background:
+    /* top*/
+    linear-gradient(
+      rgba(255, 255, 255, .5),
+      rgba(255, 255, 255, .5)
+    ),
+    url('../../../assets/Gryffindor_Logo.jpg'),
+    /* bottom */
+    linear-gradient(
+      rgb(255, 255, 255),
+      rgb(255, 255, 255)
+    );
+
+
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+mat-form-field {
+  min-width: 80%;
+  max-width: 80%;
+  margin: auto;
+}
+
+@media screen and (max-width: 850px) {
+  #formCard {
+    min-width: 50%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  #formCard {
+    min-width: 75%;
+  }
+}

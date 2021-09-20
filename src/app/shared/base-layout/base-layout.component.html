@@ -1,17 +1,46 @@
-<div fxLayout="column">
+<!--
+============================================
+; Title:  base-layout.component.html
+; Author: Professor Krasso
+; Date: 17 Sep 2021
+; Modified By: Fred Marble, George Henderson, Kevin Jones
+; Description: Base layout component HTML file
+;===========================================
+ -->
 
+<div fxLayout="column">
   <!-- navigation -->
   <nav fxFlex>
-    <mat-toolbar>
+    <mat-toolbar class="nav-style">
       <!-- navbar container -->
-      <div class="navbar-container">
-        <!-- logo -->
-        <button class="logo" routerLink="/" mat-button>BCRS</button>
+      <div class="navbar-container" fxLayout="row" fxLayoutAlign="space-between">
+          <div>
+            <!-- logo -->
+            <button class="logo" routerLink="/" mat-button>BCRS</button>
 
-        <button class="navbar-link" routerLink="/" mat-button>Home</button>
-        <button class="navbar-link" mat-button>About</button>
+            <button class="navbar-link" routerLink="/" mat-button>Home</button>
+            <button class="navbar-link" mat-button>About</button>
+            <button class="navbar-link" mat-button>Contact Us</button>
+          </div>
+
+          <div class="navbar-link">
+            <div ngbDropdown>
+              <button mat-button id="gfg" class="btn" style="color: white;" ngbDropdownToggle>
+                <mat-icon>account_circle</mat-icon>
+              </button>
+              <div class="dropDownItem" ngbDropdownMenu="gfg">
+                <button class="navbar-link" routerLink="/security-questions" ngbDropdownItem>
+                  Security Questions
+                </button>
+                <button class="navbar-link" routerLink="/users" ngbDropdownItem>
+                  Users
+                </button>
+                <button class="navbar-link" (click)="signOut()" ngbDropdownItem>Sign Out</button>
+              </div>
+            </div>
+          </div>
+
       </div>
-
     </mat-toolbar>
   </nav>
 
@@ -27,10 +56,15 @@
     <footer class="footer">
       <mat-toolbar class="footer-content">
         <p>
-          &copy; {{year | date: 'yyyy'}} - Bob's Computer Repair Shop - <a href="https://www.bellevue.edu/" class="bu-link" target="_blank">Bellevue University</a>
+          &copy; {{ year | date: "yyyy" }} - Bob's Computer Repair Shop -
+          <a
+            href="https://github.com/joneskj55/bcrs"
+            class="bu-link"
+            target="_blank"
+            >House Gryffindor</a
+          >
         </p>
       </mat-toolbar>
     </footer>
   </div>
-
 </div>
