@@ -22,7 +22,6 @@ const mongoose = require("mongoose");
  * Routes
  */
 const UserApi = require("./routes/user-api");
-// const SessionApi = require("./routes/session-api");
 const SecurityQuestionApi = require("./routes/security-questions-api");
 const SessionApi = require("./routes/session-api");
 
