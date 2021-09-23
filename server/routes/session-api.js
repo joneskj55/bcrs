@@ -143,7 +143,7 @@ router.post("/verify/users/:userName/security-questions", async (req, res) => {
 
         // if all answers match
         if (isValidAnswerOne && isValidAnswerTwo && isValidAnswerThree) {
-          console.console.log(
+          console.log(
             `User ${user.userName} answered their security questions correctly`
           );
           // send base response with 200 status
@@ -156,7 +156,7 @@ router.post("/verify/users/:userName/security-questions", async (req, res) => {
           // if answers do not match
         } else {
           // log message to console
-          console.console.log(
+          console.log(
             `User ${user.userName} did not answer their security questions correctly`
           );
           // send base response with 200 status
@@ -171,7 +171,7 @@ router.post("/verify/users/:userName/security-questions", async (req, res) => {
     });
     // catch error
   } catch (e) {
-    console.console.log(e); // log error to console
+    console.log(e); // log error to console
     // send 500 response & ErrorResponse: 'Internal Server Error'
     const verifySecurityQuestionsCatchErrorResponse = new ErrorResponse(
       "500",
@@ -204,7 +204,7 @@ router.post("/users/:userName/reset-password", async (req, res) => {
         res.status(500).send(resetPasswordMongodbErrorResponse.toObject());
         // if user is found
       } else {
-        console.console.log(user); // Log user to console
+        console.log(user); // Log user to console
 
         let hashedPassword = bcrypt.hashSync(password, saltRounds); // salt/hash the password
         // update user password
@@ -225,7 +225,7 @@ router.post("/users/:userName/reset-password", async (req, res) => {
             res.status(500).send(updatedUserMongodbErrorResponse.toObject());
             // if user is found
           } else {
-            console.console.log(updatedUser); // Log user to console
+            console.log(updatedUser); // Log user to console
             // send base response with 200 status
             const updatedPasswordResponse = new BaseResponse(
               "200",
@@ -239,7 +239,7 @@ router.post("/users/:userName/reset-password", async (req, res) => {
     });
     // catch error
   } catch (e) {
-    console.console.log(e); // log error to console
+    console.log(e); // log error to console
     const resetPasswordCatchError = new ErrorResponse(
       "500",
       "Internal server error",
