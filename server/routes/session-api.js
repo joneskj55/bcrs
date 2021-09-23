@@ -182,4 +182,71 @@ router.post("/verify/users/:userName/security-questions", async (req, res) => {
   }
 });
 
+/**
+ * ResetPassword
+ */
+router.post("/users/:userName/reset-password", async (req, res) => {
+  // Get user from database
+  try {
+    const password = req.body.password; // get password from req.body
+
+    // find user in database
+    User.findOne({ userName: req.params.userName }, function (err, user) {
+      // Server error
+      if (err) {
+        console.log(err); // Log error to console
+        // Send 500 response & ErrorResponse: 'Internal Server Error'
+        const resetPasswordMongodbErrorResponse = new ErrorResponse(
+          "500",
+          "Internal server error",
+          err
+        );
+        res.status(500).send(resetPasswordMongodbErrorResponse.toObject());
+        // if user is found
+      } else {
+        console.console.log(user); // Log user to console
+
+        let hashedPassword = bcrypt.hashSync(password, saltRounds); // salt/hash the password
+        // update user password
+        user.set({
+          password: hashedPassword,
+        });
+        // save user
+        user.save(function (err, updatedUser) {
+          // Server error
+          if (err) {
+            console.log(err); // Log error to console
+            // Send 500 response & ErrorResponse: 'Internal Server Error'
+            const updatedUserMongodbErrorResponse = new ErrorResponse(
+              "500",
+              "Internal server error",
+              err
+            );
+            res.status(500).send(updatedUserMongodbErrorResponse.toObject());
+            // if user is found
+          } else {
+            console.console.log(updatedUser); // Log user to console
+            // send base response with 200 status
+            const updatedPasswordResponse = new BaseResponse(
+              "200",
+              "Query successful",
+              updatedUser
+            );
+            res.json(updatedPasswordResponse.toObject());
+          }
+        });
+      }
+    });
+    // catch error
+  } catch (e) {
+    console.console.log(e); // log error to console
+    const resetPasswordCatchError = new ErrorResponse(
+      "500",
+      "Internal server error",
+      e
+    );
+    res.status(500).send(resetPasswordCatchError.toObject());
+  }
+});
+
 module.exports = router;
