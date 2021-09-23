@@ -21,6 +21,7 @@ import { UserCreateComponent } from './pages/user-create/user-create.component';
 import { UserDetailsComponent } from './pages/user-details/user-details.component';
 import { SecurityQuestionDetailsComponent } from './pages/security-question-details/security-question-details.component';
 import { SecurityQuestionCreateComponent } from './pages/security-question-create/security-question-create.component';
+import { ResetPasswordFormComponent } from './shared/forms/reset-password-form/reset-password-form.component';
 
 const routes: Routes = [
   {
@@ -53,8 +54,8 @@ const routes: Routes = [
       },
       {
         path: 'security-questions/create/new',
-        component: SecurityQuestionCreateComponent
-      }
+        component: SecurityQuestionCreateComponent,
+      },
     ],
     canActivate: [AuthGuard],
   },
@@ -65,6 +66,10 @@ const routes: Routes = [
       {
         path: 'signin',
         component: SignInComponent,
+      },
+      {
+        path: 'reset-password',
+        component: ResetPasswordFormComponent,
       },
     ],
   },

@@ -37,7 +37,9 @@ import { UserDetailsComponent } from './pages/user-details/user-details.componen
 import { SecurityQuestionDetailsComponent } from './pages/security-question-details/security-question-details.component';
 import { SecurityQuestionCreateComponent } from './pages/security-question-create/security-question-create.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { NotFoundComponent } from './pages/not-found/not-found.component'
+import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { ResetPasswordFormComponent } from './shared/forms/reset-password-form/reset-password-form.component';
+import { VerifySecurityQuestionsFormComponent } from './shared/forms/verify-security-questions-form/verify-security-questions-form.component'
 
 @NgModule({
   declarations: [
@@ -54,6 +56,8 @@ import { NotFoundComponent } from './pages/not-found/not-found.component'
     SecurityQuestionDetailsComponent,
     SecurityQuestionCreateComponent,
     NotFoundComponent,
+    ResetPasswordFormComponent,
+    VerifySecurityQuestionsFormComponent,
   ],
   imports: [
     BrowserModule,
