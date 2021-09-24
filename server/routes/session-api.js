@@ -107,37 +107,51 @@ router.post("/signin", async (req, res) => {
  * Returns the user.
  */
 router.get("/verify/users/:userName", async (req, res) => {
-  try
-  {
-    User.findOne({'userName': req.params.userName}, function (err, user) {
+  try {
+    User.findOne({ userName: req.params.userName }, function (err, user) {
       // Error processing query
       if (err) {
         console.log(err);
-        const verifyUserMongodbErrorResponse = new ErrorResponse('500', 'Internal service error', err);
+        const verifyUserMongodbErrorResponse = new ErrorResponse(
+          "500",
+          "Internal service error",
+          err
+        );
         return res.status(500).send(verifyUserMongodbErrorResponse.toObject());
       }
       // Successful query
       else {
         // No user found
         if (!user) {
-          const invalidUsernameResponse = new BaseResponse('400', 'Invalid username', req.params.userName);
+          const invalidUsernameResponse = new BaseResponse(
+            "400",
+            "Invalid username",
+            req.params.userName
+          );
           return res.status(400).send(invalidUsernameResponse.toObject());
         }
         // User exists
         else {
           console.log(user);
-          const userVerifiedResponse = new BaseResponse('200', 'User verified', user);
+          const userVerifiedResponse = new BaseResponse(
+            "200",
+            "User verified",
+            user
+          );
           return res.status(200).send(userVerifiedResponse.toObject());
         }
       }
-    })
-  }
-  catch(e) {
+    });
+  } catch (e) {
     console.log(e.message);
-    const verifyUserCatchResponse = new ErrorResponse('500', 'Internal service error', e.message);
+    const verifyUserCatchResponse = new ErrorResponse(
+      "500",
+      "Internal service error",
+      e.message
+    );
     return res.status(500).send(verifyUserCatchResponse.toObject());
   }
-})
+});
 
 /**
  * verifySecurityQuestions
@@ -293,7 +307,7 @@ router.post("/users/:userName/reset-password", async (req, res) => {
 /**
  * registerUser
  */
- router.post("/register", async (req, res) => {
+router.post("/register", async (req, res) => {
   try {
     // salt and hash the password
     let hashedPassword = bcrypt.hashSync(req.body.password, saltRounds);
@@ -312,7 +326,7 @@ router.post("/users/:userName/reset-password", async (req, res) => {
       address: req.body.address,
       email: req.body.email,
       role: standardRole,
-      selectedSecurityQuestions: req.body.selectedSecurityQuestions
+      selectedSecurityQuestions: req.body.selectedSecurityQuestions,
     };
 
     // check if the user already exists

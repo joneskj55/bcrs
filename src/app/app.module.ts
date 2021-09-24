@@ -39,7 +39,9 @@ import { SecurityQuestionCreateComponent } from './pages/security-question-creat
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { ResetPasswordFormComponent } from './shared/forms/reset-password-form/reset-password-form.component';
-import { VerifySecurityQuestionsFormComponent } from './shared/forms/verify-security-questions-form/verify-security-questions-form.component'
+import { VerifySecurityQuestionsFormComponent } from './shared/forms/verify-security-questions-form/verify-security-questions-form.component';
+import { MessagesModule } from 'primeng/messages';
+import { MessageModule } from 'primeng/message';
 
 @NgModule({
   declarations: [
@@ -75,7 +77,9 @@ import { VerifySecurityQuestionsFormComponent } from './shared/forms/verify-secu
     MatInputModule,
     MatDialogModule,
     MatTableModule,
-    NgbModule
+    NgbModule,
+    MessagesModule,
+    MessageModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

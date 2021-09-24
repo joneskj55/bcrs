@@ -96,9 +96,9 @@ export class VerifySecurityQuestionsFormComponent implements OnInit {
           questionText1: this.question1,
           questionText2: this.question2,
           questionText3: this.question3,
-          answerText1: this.answerToSecurityQuestion1,
-          answerText2: this.answerToSecurityQuestion2,
-          answerText3: this.answerToSecurityQuestion3,
+          answerText1: answerToSecurityQuestion1,
+          answerText2: answerToSecurityQuestion2,
+          answerText3: answerToSecurityQuestion3,
         }
       )
       .subscribe((res) => {
@@ -109,7 +109,7 @@ export class VerifySecurityQuestionsFormComponent implements OnInit {
             skipLocationChange: true,
           });
         } else {
-          this.errroMessages = [
+          this.errorMessages = [
             {
               severity: 'error',
               summary: 'Error',
