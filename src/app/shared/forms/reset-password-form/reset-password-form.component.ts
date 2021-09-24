@@ -52,19 +52,14 @@ export class ResetPasswordFormComponent implements OnInit {
   }
 
   resetPassword() {
-    // get the password from the form and send it to the server to reset the password in the database
     this.http
-      .post('/api/users/', +this.username + '/reset-password', {
-        // @ts-ignore @GH94GitHub @marblef2 ** THIS TS-IGNORE IS TEMPORARY AND WILL NEED TO BE REMOVED **
+      .post('/api/session/users/' + this.username + '/reset-password', {
         password: this.form.controls['password'].value,
       })
-      // if the password was reset successfully, redirect to the login page
       .subscribe(
         (res) => {
-          /**
-           * User is authenticated and we can grant them access
-           */
           this.cookieService.set('sessionuser', this.username, 1);
+
           this.router.navigate(['/']);
         },
         (err) => {
