@@ -16,6 +16,8 @@ const ErrorResponse = require("../services/error-response");
 const router = express.Router();
 const config = require("../../config");
 
+const saltRounds = 10; // default salt rounds for bcrypt hashing algorithm
+
 /**
  * POST Sign In
  * Attempts to sign the user in given 'userName' & 'password' in req.body
@@ -285,6 +287,102 @@ router.post("/users/:userName/reset-password", async (req, res) => {
       e
     );
     res.status(500).send(resetPasswordCatchError.toObject());
+  }
+});
+
+/**
+ * registerUser
+ */
+ router.post("/register", async (req, res) => {
+  try {
+    // salt and hash the password
+    let hashedPassword = bcrypt.hashSync(req.body.password, saltRounds);
+    // set 'standard' as the default role
+    standardRole = {
+      role: "standard",
+    };
+
+    // user object
+    let registeredUser = {
+      userName: req.body.userName,
+      password: hashedPassword,
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      phoneNumber: req.body.phoneNumber,
+      address: req.body.address,
+      email: req.body.email,
+      role: standardRole,
+      selectedSecurityQuestions: req.body.selectedSecurityQuestions
+    };
+
+    // check if the user already exists
+    User.findOne({ userName: req.body.userName }, function (err, user) {
+      // if there is an error
+      if (err) {
+        console.log(err); // log the error
+        // return an error response
+        const createMongodbErrorResponse = new ErrorResponse(
+          500,
+          "Internal server error",
+          err
+        );
+        // send the error response
+        res.status(500).send(createMongodbErrorResponse.toObject());
+        // if there is no error
+      } else {
+        // if the user already exists
+        if (user) {
+          // return an error response
+          const createUserAlreadyExistsErrorResponse = new ErrorResponse(
+            400,
+            "User already exists",
+            user
+          );
+          // send the error response
+          res.status(400).send(createUserAlreadyExistsErrorResponse.toObject());
+          // if the user does not exist
+        } else {
+          // create the user
+          User.create(registeredUser, function (err, user) {
+            // if there is an error
+            if (err) {
+              console.log(err); // log the error
+              // return an error response
+              const createMongodbErrorResponse = new ErrorResponse(
+                500,
+                "Internal server error",
+                err
+              );
+              // send the error response
+              res.status(500).send(createMongodbErrorResponse.toObject());
+              // if there is no error
+            } else {
+              console.log(user); // log the user
+              // return a success response
+              const createUserResponse = new BaseResponse(
+                201,
+                "User created",
+                user
+              );
+              // send the response
+              res.json(createUserResponse.toObject());
+            }
+          });
+        }
+      }
+    });
+
+    // if there is an error
+  } catch (e) {
+    console.log(e); // log the error
+    // return an error response
+    const createUserCatchErrorResponse = new ErrorResponse(
+      500,
+      "Internal server error",
+      e.message
+    );
+    // send the error response
+    res.status(500).send(createUserCatchErrorResponse.toObject());
   }
 });
 
