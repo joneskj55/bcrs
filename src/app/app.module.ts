@@ -42,6 +42,7 @@ import { ResetPasswordFormComponent } from './shared/forms/reset-password-form/r
 import { VerifySecurityQuestionsFormComponent } from './shared/forms/verify-security-questions-form/verify-security-questions-form.component';
 import { MessagesModule } from 'primeng/messages';
 import { MessageModule } from 'primeng/message';
+import { VerifyUsernameFormComponent } from './shared/forms/verify-username-form/verify-username-form.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +61,7 @@ import { MessageModule } from 'primeng/message';
     NotFoundComponent,
     ResetPasswordFormComponent,
     VerifySecurityQuestionsFormComponent,
+    VerifyUsernameFormComponent,
   ],
   imports: [
     BrowserModule,
