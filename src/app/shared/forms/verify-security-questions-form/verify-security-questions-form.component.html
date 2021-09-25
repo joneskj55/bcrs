@@ -1,4 +1,4 @@
-<mat-toolbar color="primary">
+<mat-toolbar color="gryffindor">
   <mat-toolbar-row></mat-toolbar-row>
   <mat-toolbar-row>
     <div class="layout-header-container">
@@ -34,6 +34,7 @@
         [formGroup]="form"
         (ngSubmit)="verifySecurityQuestions()"
         #usernameForm
+        (keydown.enter)="$event.preventDefault()"
       >
         <mat-card-content fxLayout="column">
           <mat-form-field fxFlex appearance="fill">
@@ -104,12 +105,16 @@
             <button
               mat-raised-button
               routerLink="/session/signin"
-              color="accent"
+              color="gryffindor"
             >
               Cancel
             </button>
             &nbsp;&nbsp;
-            <button mat-raised-button [disabled]="!form.valid" color="accent">
+            <button
+              mat-raised-button
+              [disabled]="!form.valid"
+              color="secondary"
+            >
               Verify Security Questions
             </button>
           </div>
