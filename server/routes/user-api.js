@@ -345,35 +345,43 @@ router.delete("/:id", async (req, res) => {
 });
 
 /**
- * FindSelcetedSecurityQuestions
+ * FindSelectedSecurityQuestions
  */
-
-router.get('/:userName/security-questions', async (req, res=> {
-  try
-  {
-    User.findOne({'userName': req.params.userName}, function(err, user)
-    {
-      if(err)
-      {
+router.get("/:userName/security-questions", async (req, res) => {
+  try {
+    User.findOne({ userName: req.params.userName }, function (err, user) {
+      // handle mongoDB error
+      if (err) {
         console.log(err);
-        const findSelectedSelectedSecurityQuestionsMongodbErrorResponse = new ErrorResponse('500', 'Internal Server Error', err);
-        res.status(500).send(findSelectedSelectedSecurityQuestionsMongodbErrorResponse.toObject());
-      }
-      else
-      {
+        const findSelectedSecurityQuestionsMongodbErrorResponse =
+          new ErrorResponse("500", "Internal server error", err);
+        res
+          .status(500)
+          .send(findSelectedSecurityQuestionsMongodbErrorResponse.toObject());
+      } else {
+        // user object matching params id
         console.log(user);
-        const findSelectedSecurityQuestionsResponse = new BaseResponse('200', 'Query Successful', user.selectedSecurityQuestions);
+        const findSelectedSecurityQuestionsResponse = new BaseResponse(
+          "200",
+          "Query successful",
+          user.selectedSecurityQuestions
+        );
         res.json(findSelectedSecurityQuestionsResponse.toObject());
       }
-    })
-  }
-  catch (e)
-  {
+    });
+  } catch (e) {
+    // Server error
     console.log(e);
-    const findSelectedSecurityQuestionsCatchErrorResponse = new ErrorResponse('500', 'Internal Server Error', e);
-    res.status(500).send(findSelectedSecurityQuestionsCatchErrorResponse.toObject());
+    const findSelectedSecurityQuestionsCatchErrorResponse = new ErrorResponse(
+      "500",
+      "Internal server error",
+      e
+    );
+    res
+      .status(500)
+      .send(findSelectedSecurityQuestionsCatchErrorResponse.toObject());
   }
-}))
+});
 
 // export the router
 module.exports = router;
