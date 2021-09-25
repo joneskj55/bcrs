@@ -2,6 +2,7 @@
 ============================================
 ; Title:  user-api.js
 ; Author: Kevin Jones
+; Modified by: Fred Marble
 ; Date: 15 Aug 2021
 ; Description: User API routes
 ;===========================================
@@ -342,6 +343,37 @@ router.delete("/:id", async (req, res) => {
     res.status(500).send(deleteUserCatchErrorResponse.toObject());
   }
 });
+
+/**
+ * FindSelcetedSecurityQuestions
+ */
+
+router.get('/:userName/security-questions', async (req, res=> {
+  try
+  {
+    User.findOne({'userName': req.params.userName}, function(err, user)
+    {
+      if(err)
+      {
+        console.log(err);
+        const findSelectedSelectedSecurityQuestionsMongodbErrorResponse = new ErrorResponse('500', 'Internal Server Error', err);
+        res.status(500).send(findSelectedSelectedSecurityQuestionsMongodbErrorResponse.toObject());
+      }
+      else
+      {
+        console.log(user);
+        const findSelectedSecurityQuestionsResponse = new BaseResponse('200', 'Query Successful', user.selectedSecurityQuestions);
+        res.json(findSelectedSecurityQuestionsResponse.toObject());
+      }
+    })
+  }
+  catch (e)
+  {
+    console.log(e);
+    const findSelectedSecurityQuestionsCatchErrorResponse = new ErrorResponse('500', 'Internal Server Error', e);
+    res.status(500).send(findSelectedSecurityQuestionsCatchErrorResponse.toObject());
+  }
+}))
 
 // export the router
 module.exports = router;
