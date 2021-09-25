@@ -10,7 +10,7 @@
 
 import { HomeComponent } from './pages/home/home.component';
 import { BaseLayoutComponent } from './shared/base-layout/base-layout.component';
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthLayoutComponent } from './shared/auth-layout/auth-layout.component';
 import { SignInComponent } from './pages/sign-in/sign-in.component';
@@ -24,6 +24,7 @@ import { SecurityQuestionCreateComponent } from './pages/security-question-creat
 import { ResetPasswordFormComponent } from './shared/forms/reset-password-form/reset-password-form.component';
 import { VerifySecurityQuestionsFormComponent } from './shared/forms/verify-security-questions-form/verify-security-questions-form.component';
 import { VerifyUsernameFormComponent } from './shared/forms/verify-username-form/verify-username-form.component';
+import { ServerErrorComponent } from './pages/server-error/server-error.component';
 
 const routes: Routes = [
   {
@@ -58,6 +59,10 @@ const routes: Routes = [
         path: 'security-questions/create/new',
         component: SecurityQuestionCreateComponent,
       },
+      {
+        path: 'server-error',
+        component: ServerErrorComponent
+      }
     ],
     canActivate: [AuthGuard],
   },
@@ -81,6 +86,10 @@ const routes: Routes = [
         path: 'reset-password',
         component: ResetPasswordFormComponent,
       },
+      {
+        path:'500',
+        component: ServerErrorComponent
+      }
     ],
   },
 ];
