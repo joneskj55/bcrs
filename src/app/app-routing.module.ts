@@ -25,6 +25,7 @@ import { ResetPasswordFormComponent } from './shared/forms/reset-password-form/r
 import { VerifySecurityQuestionsFormComponent } from './shared/forms/verify-security-questions-form/verify-security-questions-form.component';
 import { VerifyUsernameFormComponent } from './shared/forms/verify-username-form/verify-username-form.component';
 import { ServerErrorComponent } from './pages/server-error/server-error.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 const routes: Routes = [
   {
@@ -61,8 +62,8 @@ const routes: Routes = [
       },
       {
         path: 'server-error',
-        component: ServerErrorComponent
-      }
+        component: ServerErrorComponent,
+      },
     ],
     canActivate: [AuthGuard],
   },
@@ -87,10 +88,18 @@ const routes: Routes = [
         component: ResetPasswordFormComponent,
       },
       {
-        path:'500',
-        component: ServerErrorComponent
-      }
+        path: '404',
+        component: NotFoundComponent,
+      },
+      {
+        path: '500',
+        component: ServerErrorComponent,
+      },
     ],
+  },
+  {
+    path: '**',
+    redirectTo: 'session/404',
   },
 ];
 
