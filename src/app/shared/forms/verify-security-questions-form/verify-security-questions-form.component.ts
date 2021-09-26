@@ -34,9 +34,11 @@ export class VerifySecurityQuestionsFormComponent implements OnInit {
     private http: HttpClient,
     private fb: FormBuilder
   ) {
+    // Get the username from the query params
     this.username = this.route.snapshot.queryParamMap.get('username');
     console.log(this.username);
 
+    // Get the users security questions from the query params
     this.http
       .get('api/users/' + this.username + '/security-questions')
       .subscribe(
@@ -61,6 +63,7 @@ export class VerifySecurityQuestionsFormComponent implements OnInit {
   }
 
   ngOnInit() {
+    // Create the form group and add the form controls
     this.form = this.fb.group({
       answerToSecurityQuestion1: [
         null,
@@ -78,6 +81,7 @@ export class VerifySecurityQuestionsFormComponent implements OnInit {
   }
 
   verifySecurityQuestions() {
+    // Get the answers from the form
     const answerToSecurityQuestion1 =
       this.form.controls['answerToSecurityQuestion1'].value;
     const answerToSecurityQuestion2 =
@@ -89,6 +93,7 @@ export class VerifySecurityQuestionsFormComponent implements OnInit {
     console.log(answerToSecurityQuestion2);
     console.log(answerToSecurityQuestion3);
 
+    // Check if the answers match the users answers
     this.http
       .post(
         '/api/session/verify/users/' + this.username + '/security-questions',
@@ -103,11 +108,13 @@ export class VerifySecurityQuestionsFormComponent implements OnInit {
       )
       .subscribe((res) => {
         console.log(res);
+        // If the answers match, navigate to the reset password page
         if (res['message'] === 'success') {
           this.router.navigate(['/session/reset-password'], {
             queryParams: { isAuthenticated: 'true', username: this.username },
             skipLocationChange: true,
           });
+          // If the answers do not match, display an error message
         } else {
           this.errorMessages = [
             {

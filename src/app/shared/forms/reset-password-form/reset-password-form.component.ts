@@ -52,18 +52,22 @@ export class ResetPasswordFormComponent implements OnInit {
   }
 
   resetPassword() {
+    // get the password from the form
     this.http
       .post('/api/session/users/' + this.username + '/reset-password', {
         password: this.form.controls['password'].value,
       })
+      // if successful, redirect to the login page
       .subscribe(
         (res) => {
+          // set the cookie
           this.cookieService.set('sessionuser', this.username, 1);
 
-          this.router.navigate(['/']);
+          this.router.navigate(['/']); // redirect to the home page
         },
+        // if there is an error
         (err) => {
-          console.log(err);
+          console.log(err); // log the error
         }
       );
   }

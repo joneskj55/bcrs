@@ -49,6 +49,7 @@ import { MessageModule } from 'primeng/message';
 import { VerifyUsernameFormComponent } from './shared/forms/verify-username-form/verify-username-form.component';
 import { ServerErrorComponent } from './pages/server-error/server-error.component';
 import { ErrorInterceptor } from './shared/error.interceptor';
+import { AboutComponent } from './pages/about/about.component';
 
 @NgModule({
   declarations: [
@@ -69,6 +70,7 @@ import { ErrorInterceptor } from './shared/error.interceptor';
     VerifySecurityQuestionsFormComponent,
     VerifyUsernameFormComponent,
     ServerErrorComponent,
+    AboutComponent,
   ],
   imports: [
     BrowserModule,
