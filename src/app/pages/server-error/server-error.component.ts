@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+/**
+ * Date: 25 September 2021
+ * Title: server-error.component.ts
+ * Author: Fred Marble
+ * Description: Creating the Security Error component.
+ */import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-server-error',
