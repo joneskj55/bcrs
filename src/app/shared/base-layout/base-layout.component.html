@@ -13,33 +13,50 @@
   <nav fxFlex>
     <mat-toolbar class="nav-style">
       <!-- navbar container -->
-      <div class="navbar-container" fxLayout="row" fxLayoutAlign="space-between">
-          <div>
-            <!-- logo -->
-            <button class="logo" routerLink="/" mat-button>BCRS</button>
+      <div
+        class="navbar-container"
+        fxLayout="row"
+        fxLayoutAlign="space-between"
+      >
+        <div>
+          <!-- logo -->
+          <button class="logo" routerLink="/" mat-button>BCRS</button>
 
-            <button class="navbar-link" routerLink="/" mat-button>Home</button>
-            <button class="navbar-link" mat-button>About</button>
-            <button class="navbar-link" mat-button>Contact Us</button>
-          </div>
+          <button class="navbar-link" routerLink="/" mat-button>Home</button>
+          <button class="navbar-link" routerLink="about" mat-button>
+            About
+          </button>
+          <button class="navbar-link" mat-button>Contact Us</button>
+        </div>
 
-          <div class="navbar-link">
-            <div ngbDropdown>
-              <button mat-button id="gfg" class="btn" style="color: white;" ngbDropdownToggle>
-                <mat-icon>account_circle</mat-icon>
+        <div class="navbar-link">
+          <div ngbDropdown>
+            <button
+              mat-button
+              id="gfg"
+              class="btn"
+              style="color: white"
+              ngbDropdownToggle
+            >
+              <mat-icon>account_circle</mat-icon>
+            </button>
+            <div class="dropDownItem" ngbDropdownMenu="gfg">
+              <button
+                class="navbar-link"
+                routerLink="/security-questions"
+                ngbDropdownItem
+              >
+                Security Questions
               </button>
-              <div class="dropDownItem" ngbDropdownMenu="gfg">
-                <button class="navbar-link" routerLink="/security-questions" ngbDropdownItem>
-                  Security Questions
-                </button>
-                <button class="navbar-link" routerLink="/users" ngbDropdownItem>
-                  Users
-                </button>
-                <button class="navbar-link" (click)="signOut()" ngbDropdownItem>Sign Out</button>
-              </div>
+              <button class="navbar-link" routerLink="/users" ngbDropdownItem>
+                Users
+              </button>
+              <button class="navbar-link" (click)="signOut()" ngbDropdownItem>
+                Sign Out
+              </button>
             </div>
           </div>
-
+        </div>
       </div>
     </mat-toolbar>
   </nav>

@@ -1,20 +1,20 @@
 /*
 ============================================
-; Title:  not-found.component.ts
+; Title:  about.component.ts
 ; Author: Angular CLI
 ; Date: 26 Sep 2021
-; Description: Not found component TS file
+; Description: About component TS file
 ;===========================================
 */
 
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-not-found',
-  templateUrl: './not-found.component.html',
-  styleUrls: ['./not-found.component.css'],
+  selector: 'app-about',
+  templateUrl: './about.component.html',
+  styleUrls: ['./about.component.css'],
 })
-export class NotFoundComponent implements OnInit {
+export class AboutComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
