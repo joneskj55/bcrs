@@ -31,6 +31,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatTableModule } from '@angular/material/table';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatSelectModule } from '@angular/material/select';
 import { UserListComponent } from './pages/user-list/user-list.component';
 import { UserCreateComponent } from './pages/user-create/user-create.component';
 import { UserDetailsComponent } from './pages/user-details/user-details.component';
@@ -43,6 +45,8 @@ import { VerifySecurityQuestionsFormComponent } from './shared/forms/verify-secu
 import { MessagesModule } from 'primeng/messages';
 import { MessageModule } from 'primeng/message';
 import { VerifyUsernameFormComponent } from './shared/forms/verify-username-form/verify-username-form.component';
+import { RegisterComponent } from './pages/register/register.component';
+
 
 @NgModule({
   declarations: [
@@ -62,6 +66,7 @@ import { VerifyUsernameFormComponent } from './shared/forms/verify-username-form
     ResetPasswordFormComponent,
     VerifySecurityQuestionsFormComponent,
     VerifyUsernameFormComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
@@ -82,6 +87,8 @@ import { VerifyUsernameFormComponent } from './shared/forms/verify-username-form
     NgbModule,
     MessagesModule,
     MessageModule,
+    MatStepperModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent],
