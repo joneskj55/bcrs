@@ -50,15 +50,17 @@ export class SignInComponent implements OnInit {
     // Authenticate User
     try {
       this.http.post('api/session/signin', user).subscribe( res => {
+        console.log(res);
         // User is authenticated
-        if (res['data'].auth) {
+        if (res['data']) {
           // Give user cookie: 'session_user' set to their username.
           this.cookieService.set('session_user', res['data'].userName)
           this.router.navigate(['/']);
         }
         // Error
         }, err => {
-          this.error = err.error.message
+          console.log(err);
+          this.error = err.message
         })
 
         }

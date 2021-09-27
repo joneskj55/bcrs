@@ -47,7 +47,7 @@ router.post("/signin", async (req, res) => {
             "This user was not found",
             null
           );
-          return res.status(404).send(noUserError.toObject());
+          return res.status(401).send(noUserError.toObject());
         }
 
         const isAuthenticated = bcrypt.compareSync(
