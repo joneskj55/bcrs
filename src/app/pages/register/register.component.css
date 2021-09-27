@@ -1,0 +1,13 @@
+/*==============================
+; Title: Register Comp Styles
+; Date: 26 September 2021
+; Author: George Henderson
+; Description: Styles for register component.
+==============================*/
+
+.cardContainer  {
+  height: 100%;
+  background: url('../../../assets/Gryffindor_Background.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}

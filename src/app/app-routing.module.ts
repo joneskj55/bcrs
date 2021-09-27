@@ -10,7 +10,7 @@
 
 import { HomeComponent } from './pages/home/home.component';
 import { BaseLayoutComponent } from './shared/base-layout/base-layout.component';
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthLayoutComponent } from './shared/auth-layout/auth-layout.component';
 import { SignInComponent } from './pages/sign-in/sign-in.component';
@@ -21,6 +21,14 @@ import { UserCreateComponent } from './pages/user-create/user-create.component';
 import { UserDetailsComponent } from './pages/user-details/user-details.component';
 import { SecurityQuestionDetailsComponent } from './pages/security-question-details/security-question-details.component';
 import { SecurityQuestionCreateComponent } from './pages/security-question-create/security-question-create.component';
+import { ResetPasswordFormComponent } from './shared/forms/reset-password-form/reset-password-form.component';
+import { VerifySecurityQuestionsFormComponent } from './shared/forms/verify-security-questions-form/verify-security-questions-form.component';
+import { VerifyUsernameFormComponent } from './shared/forms/verify-username-form/verify-username-form.component';
+import { RegisterComponent } from './pages/register/register.component';
+import { ServerErrorComponent } from './pages/server-error/server-error.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { AboutComponent } from './pages/about/about.component';
+import { ContactComponent } from './pages/contact/contact.component';
 
 const routes: Routes = [
   {
@@ -30,6 +38,14 @@ const routes: Routes = [
       {
         path: '',
         component: HomeComponent,
+      },
+      {
+        path: 'about',
+        component: AboutComponent,
+      },
+      {
+        path: 'contact',
+        component: ContactComponent
       },
       {
         path: 'users',
@@ -53,8 +69,12 @@ const routes: Routes = [
       },
       {
         path: 'security-questions/create/new',
-        component: SecurityQuestionCreateComponent
-      }
+        component: SecurityQuestionCreateComponent,
+      },
+      {
+        path: 'server-error',
+        component: ServerErrorComponent,
+      },
     ],
     canActivate: [AuthGuard],
   },
@@ -66,7 +86,35 @@ const routes: Routes = [
         path: 'signin',
         component: SignInComponent,
       },
+      {
+        path: 'register',
+        component: RegisterComponent
+      },
+      {
+        path: 'forgot',
+        component: VerifyUsernameFormComponent,
+      },
+      {
+        path: 'verify-security-questions',
+        component: VerifySecurityQuestionsFormComponent,
+      },
+      {
+        path: 'reset-password',
+        component: ResetPasswordFormComponent,
+      },
+      {
+        path: '404',
+        component: NotFoundComponent,
+      },
+      {
+        path: '500',
+        component: ServerErrorComponent,
+      },
     ],
+  },
+  {
+    path: '**',
+    redirectTo: 'session/404',
   },
 ];
 

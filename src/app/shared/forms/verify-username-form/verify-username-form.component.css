@@ -1,0 +1,13 @@
+/*==============================
+; Title: verify-username-form.component.css
+; Date: 27 September 2021
+; Author: Kevin Jones
+; Description: Styles for verify-username form component.
+==============================*/
+
+.cardContainer {
+  height: 100%;
+  background: url("../../../../assets/Gryffindor_Background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}

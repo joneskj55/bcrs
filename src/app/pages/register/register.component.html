@@ -1,0 +1,224 @@
+<!-----------------------------
+; Title: Register HTMl template
+; Date: 25 September 2021
+; Author: George Henderson
+; Description: HTML template for the register component.
+----------------------------->
+
+<div fxLayout="column" class="cardContainer">
+  <mat-card style="margin: 10% auto auto;" class="mat-elevation-z8">
+    <mat-card-title>Register Account</mat-card-title>
+
+    <mat-card-content>
+      <mat-horizontal-stepper linear>
+
+        <!-- Contact Form -->
+        <mat-step label="Contact" [stepControl]="contactForm" errorMessage="Contact is Required.">
+          <form [formGroup]="contactForm">
+
+            <div fxLayout="row" fxLayoutAlign="space-between">
+
+              <mat-form-field appearance="fill">
+                <mat-label>First Name</mat-label>
+                <input matInput formControlName="firstName" placeholder="Enter First Name...">
+
+                <mat-error *ngIf="contactForm.controls.firstName.hasError('required') && contactForm.controls.firstName.touched">
+                  Required Field.
+                </mat-error>
+              </mat-form-field>
+
+              <mat-form-field appearance="fill">
+                <mat-label>Last Name</mat-label>
+                <input matInput formControlName="lastName" placeholder="Enter Last Name...">
+
+                <mat-error *ngIf="contactForm.controls.lastName.hasError('required') && contactForm.controls.lastName.touched">
+                  Required Field.
+                </mat-error>
+              </mat-form-field>
+
+            </div>
+
+            <div fxLayout="column">
+
+              <mat-form-field appearance="fill">
+                <mat-label>Phone Number</mat-label>
+                <input matInput formControlName="phoneNumber" placeholder="Enter Phone Number...">
+
+                <mat-error *ngIf="contactForm.controls.phoneNumber.hasError('required') && contactForm.controls.phoneNumber.touched">
+                  Required Field.
+                </mat-error>
+              </mat-form-field>
+
+              <mat-form-field appearance="fill">
+                <mat-label>Email</mat-label>
+                <input matInput formControlName="email" placeholder="Enter Email...">
+
+                <mat-error *ngIf="contactForm.controls.email.hasError('required') && contactForm.controls.email.touched">
+                  Required Field.
+                </mat-error>
+
+                <mat-error *ngIf="contactForm.controls.email.hasError('email') && contactForm.controls.email.touched">
+                  Not in email format.
+                </mat-error>
+              </mat-form-field>
+
+              <mat-form-field appearance="fill">
+                <mat-label>Address</mat-label>
+                <input matInput formControlName="address" placeholder="Enter Address...">
+
+                <mat-error *ngIf="contactForm.controls.address.hasError('required') && contactForm.controls.address.touched">
+                  Required Field.
+                </mat-error>
+              </mat-form-field>
+
+            </div>
+            <div fxLayoutAlign="space-between center">
+              <div>
+                <a routerLink="/session/signin">Back to Sign in</a>
+              </div>
+              <div fxLayoutAlign="end">
+                <button mat-raised-button color="gryffindor" matStepperNext>Next</button>
+              </div>
+            </div>
+
+          </form>
+        </mat-step>
+
+        <!-- Security Questions Form -->
+        <mat-step label="Security Questions" [stepControl]="securityQuestionsForm" errorMessage="Security Questions are Required.">
+          <form [formGroup]="securityQuestionsForm">
+
+            <div fxLayout="row" fxLayoutAlign="space-between">
+              <mat-form-field appearance="fill">
+                <mat-label>Security Question</mat-label>
+                <mat-select formControlName="securityQuestion1">
+
+                  <mat-option *ngFor="let question of securityQuestions" [value]="question.text">
+                    {{ question.text }}
+                  </mat-option>
+                </mat-select>
+
+                <mat-error *ngIf="securityQuestionsForm.controls['securityQuestion1'].hasError('required') && securityQuestionsForm.controls['securityQuestion1'].touched">
+                  Required Field.
+                </mat-error>
+              </mat-form-field>
+
+              <mat-form-field appearance="fill">
+                <mat-label>Answer</mat-label>
+                <input matInput formControlName="answerToSecurityQuestion1" placeholder="Enter Answer...">
+
+                <mat-error *ngIf="securityQuestionsForm.controls['answerToSecurityQuestion1'].hasError('required') && securityQuestionsForm.controls['answerToSecurityQuestion1'].touched">
+                  Required Field.
+                </mat-error>
+              </mat-form-field>
+            </div>
+
+            <div fxLayout="row" fxLayoutAlign="space-between">
+              <mat-form-field appearance="fill">
+                <mat-label>Security Question</mat-label>
+                <mat-select formControlName="securityQuestion2">
+
+                  <mat-option *ngFor="let question of securityQuestions" [value]="question.text">
+                    {{ question.text }}
+                  </mat-option>
+                </mat-select>
+
+                <mat-error *ngIf="securityQuestionsForm.controls['securityQuestion2'].hasError('required') && securityQuestionsForm.controls['securityQuestion2'].touched">
+                  Required Field.
+                </mat-error>
+              </mat-form-field>
+
+              <mat-form-field appearance="fill">
+                <mat-label>Answer</mat-label>
+                <input matInput formControlName="answerToSecurityQuestion2" placeholder="Enter Answer...">
+
+                <mat-error *ngIf="securityQuestionsForm.controls['answerToSecurityQuestion2'].hasError('required') && securityQuestionsForm.controls['answerToSecurityQuestion2'].touched">
+                  Required Field.
+                </mat-error>
+              </mat-form-field>
+            </div>
+
+            <div fxLayout="row" fxLayoutAlign="space-between">
+              <mat-form-field appearance="fill">
+                <mat-label>Security Question</mat-label>
+                <mat-select formControlName="securityQuestion3">
+
+                  <mat-option *ngFor="let question of securityQuestions" [value]="question.text">
+                    {{ question.text }}
+                  </mat-option>
+                </mat-select>
+
+                <mat-error *ngIf="securityQuestionsForm.controls['securityQuestion3'].hasError('required') && securityQuestionsForm.controls['securityQuestion3'].touched">
+                  Required Field.
+                </mat-error>
+              </mat-form-field>
+
+              <mat-form-field appearance="fill">
+                <mat-label>Answer</mat-label>
+                <input matInput formControlName="answerToSecurityQuestion3" placeholder="Enter Answer...">
+
+                <mat-error *ngIf="securityQuestionsForm.controls['answerToSecurityQuestion3'].hasError('required') && securityQuestionsForm.controls['answerToSecurityQuestion3'].touched">
+                  Required Field.
+                </mat-error>
+              </mat-form-field>
+            </div>
+
+            <div fxLayoutAlign="space-between center">
+              <div>
+                <a routerLink="/session/signin">Back to Sign in</a>
+              </div>
+              <div fxLayoutAlign="end" fxLayoutGap="10px">
+                <button mat-raised-button color="gryffindor" matStepperPrevious>Back</button>
+                <button mat-raised-button color="secondary" matStepperNext>Next</button>
+              </div>
+            </div>
+
+          </form>
+        </mat-step>
+
+        <!-- Credentials Form -->
+        <mat-step label="Credentials" [stepControl]="credentialsForm" errorMessage="Credentials are required.">
+          <form [formGroup]="credentialsForm">
+            <p-message></p-message>
+            <div fxLayout="column">
+              <mat-form-field appearance="fill">
+                <mat-label>Username</mat-label>
+                <input matInput formControlName="userName" placeholder="Enter Username...">
+
+                <mat-error *ngIf="credentialsForm.controls.userName.hasError('required') && credentialsForm.controls.userName.touched">
+                  Required Field.
+                </mat-error>
+              </mat-form-field>
+
+              <mat-form-field appearance="fill">
+                <mat-label>Password</mat-label>
+                <input matInput type="password" formControlName="password" placeholder="Enter Password...">
+
+                <mat-error *ngIf="credentialsForm.controls.password.hasError('required') && credentialsForm.controls.password.touched">
+                  Required Field.
+                </mat-error>
+
+                <mat-error *ngIf="credentialsForm.controls.password.hasError('pattern') && credentialsForm.controls.password.touched">
+                  Password must be at least 8 characters, contain one letter, and one number.
+                </mat-error>
+              </mat-form-field>
+            </div>
+
+            <div fxLayoutAlign="space-between center">
+              <div fxLayout="row" fxLayoutGap="10px">
+                <a routerLink="/session/signin">Back to Sign in</a>
+                <span style="color: red;">{{ errorMessage }}</span>
+              </div>
+              <div fxLayoutAlign="end" fxLayoutGap="10px">
+                <button mat-raised-button color="gryffindor" matStepperPrevious>Back</button>
+                <button mat-raised-button color="secondary" (click)="register()" [disabled]="!credentialsForm.valid">Submit</button>
+              </div>
+            </div>
+
+          </form>
+        </mat-step>
+
+      </mat-horizontal-stepper>
+    </mat-card-content>
+  </mat-card>
+</div>
