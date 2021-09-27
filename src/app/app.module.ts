@@ -54,6 +54,7 @@ import { RegisterComponent } from './pages/register/register.component';
 import { ServerErrorComponent } from './pages/server-error/server-error.component';
 import { ErrorInterceptor } from './shared/error.interceptor';
 import { AboutComponent } from './pages/about/about.component';
+import { ContactComponent } from './pages/contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -76,6 +77,7 @@ import { AboutComponent } from './pages/about/about.component';
     RegisterComponent,
     ServerErrorComponent,
     AboutComponent,
+    ContactComponent,
   ],
   imports: [
     BrowserModule,
