@@ -77,7 +77,7 @@
                 <a routerLink="/session/signin">Back to Sign in</a>
               </div>
               <div fxLayoutAlign="end">
-                <button mat-raised-button matStepperNext>Next</button>
+                <button mat-raised-button color="gryffindor" matStepperNext>Next</button>
               </div>
             </div>
 
@@ -168,8 +168,8 @@
                 <a routerLink="/session/signin">Back to Sign in</a>
               </div>
               <div fxLayoutAlign="end" fxLayoutGap="10px">
-                <button mat-raised-button matStepperPrevious>Back</button>
-                <button mat-raised-button matStepperNext>Next</button>
+                <button mat-raised-button color="gryffindor" matStepperPrevious>Back</button>
+                <button mat-raised-button color="secondary" matStepperNext>Next</button>
               </div>
             </div>
 
@@ -210,8 +210,8 @@
                 <span style="color: red;">{{ errorMessage }}</span>
               </div>
               <div fxLayoutAlign="end" fxLayoutGap="10px">
-                <button mat-raised-button matStepperPrevious>Back</button>
-                <button mat-raised-button (click)="register()" [disabled]="!credentialsForm.valid">Submit</button>
+                <button mat-raised-button color="gryffindor" matStepperPrevious>Back</button>
+                <button mat-raised-button color="secondary" (click)="register()" [disabled]="!credentialsForm.valid">Submit</button>
               </div>
             </div>
 
