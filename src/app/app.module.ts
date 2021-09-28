@@ -11,6 +11,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AppRoutingModule } from './app-routing.module';
+
+// HTTP
 import {
   HttpClient,
   HttpClientModule,
@@ -43,7 +46,6 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatCardModule } from '@angular/material/card';
 
 // Components
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 import { BaseLayoutComponent } from './shared/base-layout/base-layout.component';
@@ -61,7 +63,6 @@ import { ResetPasswordFormComponent } from './shared/forms/reset-password-form/r
 import { VerifySecurityQuestionsFormComponent } from './shared/forms/verify-security-questions-form/verify-security-questions-form.component';
 import { VerifyUsernameFormComponent } from './shared/forms/verify-username-form/verify-username-form.component';
 import { RegisterComponent } from './pages/register/register.component';
-
 import { ServerErrorComponent } from './pages/server-error/server-error.component';
 import { ErrorInterceptor } from './shared/error.interceptor';
 import { AboutComponent } from './pages/about/about.component';
