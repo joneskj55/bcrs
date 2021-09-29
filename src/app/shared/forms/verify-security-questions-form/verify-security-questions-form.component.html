@@ -23,7 +23,6 @@
       [formGroup]="form"
       (ngSubmit)="verifySecurityQuestions()"
       #usernameForm
-      (keydown.enter)="$event.preventDefault()"
     >
       <mat-card-content fxLayout="column">
         <mat-form-field fxFlex appearance="fill">
@@ -84,7 +83,6 @@
         <div fxFlex fxLayoutAlign="end" class="p5">
           <button
             mat-raised-button
-            routerLink="/session/signin"
             color="gryffindor"
           >
             Cancel
