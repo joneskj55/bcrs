@@ -155,7 +155,7 @@ router.post("/", async (req, res) => {
           // return an error response
           const createUserAlreadyExistsErrorResponse = new ErrorResponse(
             400,
-            "User already exists",
+            `The username '${req.body.userName}' is already in use.`,
             "User already exists"
           );
           // send the error response

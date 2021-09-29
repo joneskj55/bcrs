@@ -13,6 +13,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from './../../shared/interfaces/user.interface';
 import { UserService } from './../../shared/services/user.service';
+import { Message } from 'primeng/api/message';
 
 @Component({
   selector: 'app-user-create',
@@ -24,6 +25,7 @@ export class UserCreateComponent implements OnInit {
   userId: string;
   form: FormGroup;
   roles: any;
+  errorMessages: Message[];
 
   constructor(
     private fb: FormBuilder,
@@ -74,10 +76,9 @@ export class UserCreateComponent implements OnInit {
       // if error, display error message
       (err) => {
         console.log(err);
-        // if the user is in the database, show the alert
-        window.alert(
-          'Username is already in use, please select a different Username'
-        );
+        this.errorMessages = [
+          { severity: 'error', summary: 'Error', detail: err['message'] },
+        ];
       }
     );
   }

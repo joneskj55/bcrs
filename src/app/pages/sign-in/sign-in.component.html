@@ -14,6 +14,7 @@
         >Create an Account</a
       ></mat-card-subtitle
     >
+    <p-messages [(value)]="errorMessages" [enableService]="false"></p-messages>
 
     <mat-card-content>
       <form [formGroup]="signinForm" (ngSubmit)="signIn()" fxLayout="column">
