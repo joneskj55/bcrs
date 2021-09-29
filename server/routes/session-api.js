@@ -44,7 +44,7 @@ router.post("/signin", async (req, res) => {
         if (!user) {
           const noUserError = new ErrorResponse(
             404,
-            "This user was not found",
+            `The username '${req.body.userName}' was not found.`,
             null
           );
           return res.status(401).send(noUserError.toObject());

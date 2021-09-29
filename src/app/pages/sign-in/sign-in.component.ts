@@ -2,6 +2,7 @@
 ; Title: Sign-In Component
 ; Date: 16 September 2021
 ; Author: George Henderson
+; Modified by: Kevin Jones
 ; Description: Class file for the sign-in component.
 ========================*/
 

@@ -19,7 +19,7 @@
     <mat-card-content>
       <form [formGroup]="signinForm" (ngSubmit)="signIn()" fxLayout="column">
         <mat-form-field fxFlex appearance="fill">
-          <mat-label>Enter Username</mat-label>
+          <mat-label>Username</mat-label>
           <input type="text" matInput formControlName="username" />
           <mat-error
             *ngIf="
@@ -32,7 +32,7 @@
         </mat-form-field>
 
         <mat-form-field fxFlex appearance="fill">
-          <mat-label>Enter Password</mat-label>
+          <mat-label>Password</mat-label>
           <input type="password" matInput formControlName="password" />
           <mat-error
             *ngIf="
