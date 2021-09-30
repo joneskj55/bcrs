@@ -12,17 +12,16 @@
   <!-- navigation -->
   <nav fxFlex>
     <mat-toolbar class="nav-style">
+      <button routerLink="/" mat-button fxLayoutAlign="flex-start">
+        <!-- logo -->
+        <img src="../../../assets/gryff.webp" height="40px" width="40px" />
+      </button>
       <!-- navbar container -->
-      <div
-        class="navbar-container"
-        fxLayout="row"
-        fxLayoutAlign="space-between"
-      >
+      <div class="navbar-container" fxLayout="row" fxLayoutAlign="space-around">
         <div>
-          <!-- logo -->
-          <button class="logo" routerLink="/" mat-button>BCRS</button>
-
-          <button class="navbar-link" routerLink="/" mat-button>Home</button>
+          <button class="navbar-link" routerLink="/" mat-button>
+            Service Repair
+          </button>
           <button class="navbar-link" routerLink="about" mat-button>
             About
           </button>

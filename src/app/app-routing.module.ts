@@ -30,6 +30,7 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { AboutComponent } from './pages/about/about.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { RoleListComponent } from './pages/role-list/role-list.component';
+import { RoleCreateComponent } from './pages/role-create/role-create.component';
 
 const routes: Routes = [
   {
@@ -75,6 +76,10 @@ const routes: Routes = [
       {
         path: 'roles',
         component: RoleListComponent,
+      },
+      {
+        path: 'roles/create/new',
+        component: RoleCreateComponent,
       },
       {
         path: 'server-error',

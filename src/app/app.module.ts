@@ -68,6 +68,7 @@ import { ErrorInterceptor } from './shared/error.interceptor';
 import { AboutComponent } from './pages/about/about.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { RoleListComponent } from './pages/role-list/role-list.component';
+import { RoleCreateComponent } from './pages/role-create/role-create.component';
 
 @NgModule({
   declarations: [
@@ -92,6 +93,7 @@ import { RoleListComponent } from './pages/role-list/role-list.component';
     AboutComponent,
     ContactComponent,
     RoleListComponent,
+    RoleCreateComponent,
   ],
   imports: [
     BrowserModule,
