@@ -30,23 +30,30 @@ export class RoleCreateComponent implements OnInit {
     private roleService: RoleService
   ) {}
 
+  // build the form and add validators
   ngOnInit() {
     this.form = this.fb.group({
       text: [null, Validators.compose([Validators.required])],
     });
   }
 
+  // create a new role
   create() {
+    // get the form values
     const newRole = {
       text: this.form.controls['text'].value,
     } as Role;
 
+    // call the service to create the role
     this.roleService.createRole(newRole).subscribe(
+      // if successful, navigate to the roles page
       (res) => {
         this.router.navigate(['/roles']);
       },
+      // if there is an error, display the error message
       (err) => {
-        console.log(err);
+        console.log(err); // log the error to the console
+        // set the error message through PrimeNG
         this.errorMessages = [
           { severity: 'error', summary: 'Error', detail: err.message },
         ];
@@ -54,6 +61,7 @@ export class RoleCreateComponent implements OnInit {
     );
   }
 
+  // cancel and navigate back to the roles page
   cancel() {
     this.router.navigate(['/roles']);
   }
