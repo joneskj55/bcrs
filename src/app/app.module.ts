@@ -67,6 +67,7 @@ import { ServerErrorComponent } from './pages/server-error/server-error.componen
 import { ErrorInterceptor } from './shared/error.interceptor';
 import { AboutComponent } from './pages/about/about.component';
 import { ContactComponent } from './pages/contact/contact.component';
+import { RoleListComponent } from './pages/role-list/role-list.component';
 
 @NgModule({
   declarations: [
@@ -90,6 +91,7 @@ import { ContactComponent } from './pages/contact/contact.component';
     ServerErrorComponent,
     AboutComponent,
     ContactComponent,
+    RoleListComponent,
   ],
   imports: [
     BrowserModule,
@@ -114,11 +116,11 @@ import { ContactComponent } from './pages/contact/contact.component';
     MatSelectModule,
   ],
   providers: [
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: ErrorInterceptor,
-      multi: true,
-    },
+    // {
+    //   provide: HTTP_INTERCEPTORS,
+    //   useClass: ErrorInterceptor,
+    //   multi: true,
+    // },
   ],
   bootstrap: [AppComponent],
 })

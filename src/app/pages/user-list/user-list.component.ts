@@ -25,6 +25,7 @@ export class UserListComponent implements OnInit {
   displayedColumns = [
     'userName',
     'firstName',
+    'lastName',
     'phoneNumber',
     'address',
     'email',

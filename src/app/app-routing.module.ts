@@ -29,6 +29,7 @@ import { ServerErrorComponent } from './pages/server-error/server-error.componen
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { AboutComponent } from './pages/about/about.component';
 import { ContactComponent } from './pages/contact/contact.component';
+import { RoleListComponent } from './pages/role-list/role-list.component';
 
 const routes: Routes = [
   {
@@ -45,7 +46,7 @@ const routes: Routes = [
       },
       {
         path: 'contact',
-        component: ContactComponent
+        component: ContactComponent,
       },
       {
         path: 'users',
@@ -72,6 +73,10 @@ const routes: Routes = [
         component: SecurityQuestionCreateComponent,
       },
       {
+        path: 'roles',
+        component: RoleListComponent,
+      },
+      {
         path: 'server-error',
         component: ServerErrorComponent,
       },
@@ -88,7 +93,7 @@ const routes: Routes = [
       },
       {
         path: 'register',
-        component: RegisterComponent
+        component: RegisterComponent,
       },
       {
         path: 'forgot',

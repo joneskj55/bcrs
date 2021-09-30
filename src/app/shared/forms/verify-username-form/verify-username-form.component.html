@@ -19,6 +19,7 @@
       [formGroup]="form"
       (ngSubmit)="validateUsername()"
       #usernameForm
+      (keydown.enter)="$event.preventDefault()"
     >
       <mat-card-content fxLayout="column">
         <mat-form-field fxFlex appearance="fill">
@@ -43,6 +44,7 @@
           <button
             mat-raised-button
             color="gryffindor"
+            routerLink="/session/signin"
           >
             Cancel
           </button>
