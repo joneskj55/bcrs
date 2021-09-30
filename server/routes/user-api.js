@@ -235,6 +235,12 @@ router.put("/:id", async (req, res) => {
           address: req.body.address,
           email: req.body.email,
         });
+
+        // set the user's role
+        user.role.set({
+          role: req.body.role,
+        });
+
         // save the user
         user.save(function (err, savedUser) {
           // if there is an error
