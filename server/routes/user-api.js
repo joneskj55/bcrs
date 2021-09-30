@@ -389,5 +389,51 @@ router.get("/:userName/security-questions", async (req, res) => {
   }
 });
 
+/**
+ * findUserRole
+ */
+// make call to api to get user role
+router.get("/:userName/role", async (req, res) => {
+  try {
+    // get the user by userName
+    User.findOne({ userName: req.params.userName }, function (err, user) {
+      if (err) {
+        // handle mongoDB error
+        console.log(err); // log the error
+        // return an error response
+        const findUserRoleMongodbErrorResponse = new ErrorResponse(
+          "500",
+          "Internal server error",
+          err
+        );
+        // send the error response
+        res.status(500).send(findUserRoleMongodbErrorResponse.toObject());
+      } else {
+        // if there is no error
+        console.log(user); // log the user
+        // return a success response
+        const findUserRoleResponse = new BaseResponse(
+          "200",
+          "Query successful",
+          user.role
+        );
+        // send the response
+        res.json(findUserRoleResponse.toObject());
+      }
+    });
+  } catch (e) {
+    // handle server error
+    console.log(e); // log the error
+    // return an error response
+    const findUserRoleCatchErrorResponse = new ErrorResponse(
+      "500",
+      "Internal server error",
+      e.message
+    );
+    // send the error response
+    res.status(500).send(findUserRoleCatchErrorResponse.toObject());
+  }
+});
+
 // export the router
 module.exports = router;
