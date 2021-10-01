@@ -32,6 +32,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 // PrimeNG
 import { MessagesModule } from 'primeng/messages';
 import { MessageModule } from 'primeng/message';
+import { ChartModule } from 'primeng/chart';
 
 // Angular Material
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -70,6 +71,7 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { RoleListComponent } from './pages/role-list/role-list.component';
 import { RoleCreateComponent } from './pages/role-create/role-create.component';
 import { RoleDetailsComponent } from './pages/role-details/role-details.component';
+import { PurchasesByServiceGraphComponent } from './pages/purchases-by-service-graph/purchases-by-service-graph.component';
 
 @NgModule({
   declarations: [
@@ -96,6 +98,7 @@ import { RoleDetailsComponent } from './pages/role-details/role-details.componen
     RoleListComponent,
     RoleCreateComponent,
     RoleDetailsComponent,
+    PurchasesByServiceGraphComponent,
   ],
   imports: [
     BrowserModule,
@@ -118,6 +121,7 @@ import { RoleDetailsComponent } from './pages/role-details/role-details.componen
     MessageModule,
     MatStepperModule,
     MatSelectModule,
+    ChartModule,
   ],
   providers: [
     {
