@@ -69,6 +69,7 @@ import { AboutComponent } from './pages/about/about.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { RoleListComponent } from './pages/role-list/role-list.component';
 import { RoleCreateComponent } from './pages/role-create/role-create.component';
+import { RoleDetailsComponent } from './pages/role-details/role-details.component';
 
 @NgModule({
   declarations: [
@@ -94,6 +95,7 @@ import { RoleCreateComponent } from './pages/role-create/role-create.component';
     ContactComponent,
     RoleListComponent,
     RoleCreateComponent,
+    RoleDetailsComponent,
   ],
   imports: [
     BrowserModule,
