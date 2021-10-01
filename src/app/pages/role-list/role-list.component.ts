@@ -23,6 +23,7 @@ import { Message } from 'primeng/api/message';
 export class RoleListComponent implements OnInit {
   roles: Role[];
   errorMessages: Message[];
+  displayedColumns = ['role', 'functions'];
 
   constructor(private roleService: RoleService, private dialog: MatDialog) {
     this.roleService.findAllRoles().subscribe((res) => {
