@@ -15,7 +15,7 @@ const router = express.Router();
 /**
  * createInvoice
  */
-router.post('/:userName', ( req, res ) => {
+router.post('/:userName', async ( req, res ) => {
 
   try {
     const newInvoice = {
@@ -56,7 +56,7 @@ router.post('/:userName', ( req, res ) => {
 /**
  * findPurchasesByService
  */
-router.get('/purchase-graph', ( req, res) => {
+router.get('/purchase-graph', async ( req, res) => {
   try {
     Invoice.aggregate([
       {
