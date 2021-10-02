@@ -170,5 +170,39 @@ router.delete("/:roleId", async (req, res) => {
   }
 });
 
+/**
+ * updateRole
+ */
+router.put("/:roleId", async ( req, res ) => {
+
+  try {
+    const filter = {
+      "_id": req.params.roleId
+    };
+
+    const update = req.body;
+
+    Role.findOneAndUpdate(filter, update, {'new': true}, function (err, role) {
+      if (err) {
+        console.log(err);
+        const updateRoleMongodbErrorResponse = new ErrorResponse("500", "Internal Server Error", err);
+        return res.status(500).send(updateRoleMongodbErrorResponse.toObject());
+      }
+      // Successful
+      else {
+        console.log(role);
+        const updateRoleSuccessResponse = new BaseResponse("200", "Role Successfully Updated", role);
+        return res.status(200).send(updateRoleSuccessResponse.toObject());
+      }
+    });
+  }
+  catch(e) {
+    console.log(e);
+    const updateRoleCatchResponse = new ErrorResponse("500", "Internal Server Error", e.message);
+    return res.status(500).send(updateRoleCatchResponse.toObject());
+  }
+
+});
+
 // export the router
 module.exports = router;
