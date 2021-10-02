@@ -12,6 +12,9 @@ const ErrorResponse = require('../services/error-response');
 
 const router = express.Router();
 
+/**
+ * createInvoice
+ */
 router.post('/:userName', ( req, res ) => {
 
   try {
@@ -48,6 +51,52 @@ router.post('/:userName', ( req, res ) => {
     res.status(500).send(createInvoiceCatchErrorResponse.toObject());
   }
 
+});
+
+/**
+ * findPurchasesByService
+ */
+router.get('/purchase-graph', ( req, res) => {
+  try {
+    Invoice.aggregate([
+      {
+        $unwind: '$lineItems'
+      },
+      {
+        $group: {
+          '_id': {
+            'title': '$lineItems.title',
+            'price': '$lineItems.price',
+            'count': { $sum: 1 }
+          }
+        }
+      },
+      {
+        $sort: {
+          '_id.title': 1
+        }
+      }
+    ], function( err, purchaseGraph) {
+      // Query Error
+      if (err) {
+        // Send 500 Response
+        const findPurchaseByServiceMongodbErrorResponse = new ErrorResponse("500", "Internal Server Error", err);
+        res.status(500).send(findPurchaseByServiceMongodbErrorResponse.toObject());
+      }
+      // Query went through
+      else {
+        console.log(purchaseGraph);
+        // Send back purchase graph
+        const findPurchaseByServiceSuccessResponse = new BaseResponse("200", "Query Successful", purchaseGraph);
+        res.status(200).send(findPurchaseByServiceSuccessResponse.toObject());
+      }
+    })
+  }
+  catch(e) {
+    console.log(e);
+    const serviceGraphCatchResponse = new ErrorResponse("500", "Internal Server Error", e.message);
+    res.status(500).send(serviceGraphCatchResponse.toObject());
+  }
 });
 
 module.exports = router;
