@@ -56,6 +56,37 @@ router.get("/", async (req, res) => {
 });
 
 /**
+ * FindById
+ */
+router.get('/:roleId', async(req, res)=> {
+    try 
+    {
+        Role.findOne({'_id': req.params.roleId}, function(err, role)
+        {
+            if(err)
+            {
+                console.log(err);
+                const findRoleByIdMongodbErrorResponse = new ErrorResponse('500', 'Internal Server Error', err);
+                res.status(500).send(findRoleByIdMongodbErrorResponse.toObject());
+            }
+            else
+            {
+                console.log(role);
+                const findRoleByIdResponse = new BaseResponse('200', 'Query Successful', role);
+                res.json(findRoleByIdResponse.toObject());
+            }
+        })
+    } 
+    catch (e) 
+    {
+        console.log(e);
+        const findRoleByIdCatchErrorResponse = new ErrorResponse('500', 'Internal Server Error', e.message);
+        res.status(500).send(findRoleByIdCatchErrorResponse.toObject());
+    }
+});
+
+
+/**
  * DeleteRole
  */
 // delete role by id
