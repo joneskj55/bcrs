@@ -45,6 +45,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCardModule } from '@angular/material/card';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatDividerModule } from '@angular/material/divider';
 
 // Components
 import { AppComponent } from './app.component';
@@ -122,6 +124,8 @@ import { PurchasesByServiceGraphComponent } from './pages/purchases-by-service-g
     MatStepperModule,
     MatSelectModule,
     ChartModule,
+    MatMenuModule,
+    MatDividerModule,
   ],
   providers: [
     {
