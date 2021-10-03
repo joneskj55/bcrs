@@ -9,7 +9,10 @@
 */
 
 import { Component, OnInit } from '@angular/core';
-import { SessionService } from '../services/session.service';
+import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
+import { Role } from '../interfaces/role.interface';
+import { RoleService } from '../services/role.service';
 
 @Component({
   selector: 'app-base-layout',
@@ -18,12 +21,28 @@ import { SessionService } from '../services/session.service';
 })
 export class BaseLayoutComponent implements OnInit {
   year: number = Date.now();
+  userRole: Role;
 
-  constructor(private sessionService: SessionService) {}
+  constructor(
+    private cookieService: CookieService,
+    private router: Router,
+    private roleService: RoleService
+  ) {
+    // get the user role in order to control access permissions
+    this.roleService
+      .findUserRole(this.cookieService.get('session_user'))
+      .subscribe((res) => {
+        this.userRole = res['data'];
+      });
+  }
 
   ngOnInit(): void {}
 
+  /**
+   * Deletes all users cookies, and sends them to the sign in page.
+   */
   signOut() {
-    this.sessionService.signOut();
+    this.cookieService.deleteAll();
+    this.router.navigate(['/session/signin']);
   }
 }

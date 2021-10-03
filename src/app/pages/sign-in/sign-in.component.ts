@@ -50,7 +50,7 @@ export class SignInComponent implements OnInit {
    * Sends a POST request with the users given credentials
    * If the user is authenticated, send them to home page otherwise display proper error.
    */
-  signIn() {
+  signIn(): void {
     const userName = this.signinForm.controls.username.value;
     const password = this.signinForm.controls.password.value;
 
@@ -60,14 +60,18 @@ export class SignInComponent implements OnInit {
     };
 
     // Authenticate User
-    try {
-      this.http.post('api/session/signin', user).subscribe(
+    this.http
+      .post('/api/session/signin', {
+        userName,
+        password,
+      })
+      .subscribe(
         (res) => {
-          console.log(res);
+          console.log(res['data']);
           // User is authenticated
-          if (res['data']) {
+          if (res['data'].userName) {
             // Give user cookie: 'session_user' set to their username.
-            this.cookieService.set('session_user', res['data'].userName);
+            this.cookieService.set('session_user', res['data'].userName, 1);
             this.router.navigate(['/']);
           }
           // Error
@@ -79,9 +83,5 @@ export class SignInComponent implements OnInit {
           ];
         }
       );
-    } catch (e) {
-      console.log(e.message);
-      this.error = "Couldn't log you in, please try again.";
-    }
   }
 }
