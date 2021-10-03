@@ -56,46 +56,60 @@ router.post('/:userName', async ( req, res ) => {
 /**
  * findPurchasesByService
  */
-router.get('/purchase-graph', async ( req, res) => {
+router.get("/purchases-graph", async (req, res) => {
   try {
-    Invoice.aggregate([
-      {
-        $unwind: '$lineItems'
-      },
-      {
-        $group: {
-          '_id': {
-            'title': '$lineItems.title',
-            'price': '$lineItems.price',
-            'count': { $sum: 1 }
-          }
+    Invoice.aggregate(
+      [
+        {
+          $unwind: "$lineItems",
+        },
+        {
+          $group: {
+            _id: {
+              title: "$lineItems.title",
+              price: "$lineItems.price",
+            },
+            count: {
+              $sum: 1,
+            },
+          },
+        },
+        {
+          $sort: {
+            "_id.title": 1,
+          },
+        },
+      ],
+      function (err, purchaseGraph) {
+        if (err) {
+          console.log(err);
+          const findPurchasesByServiceGraphMongodbErrorResponse = new ErrorResponse(
+            "500",
+            "Internal Server error",
+            err
+          );
+          res
+            .status(500)
+            .send(findPurchasesByServiceGraphMongodbErrorResponse.toObject());
+        } else {
+          console.log(purchaseGraph);
+          const findPurchasesByServiceGraphResponse = new BaseResponse(
+            "200",
+            "Query successful",
+            purchaseGraph
+          );
+          res.json(findPurchasesByServiceGraphResponse.toObject());
         }
-      },
-      {
-        $sort: {
-          '_id.title': 1
-        }
       }
-    ], function( err, purchaseGraph) {
-      // Query Error
-      if (err) {
-        // Send 500 Response
-        const findPurchaseByServiceMongodbErrorResponse = new ErrorResponse("500", "Internal Server Error", err);
-        res.status(500).send(findPurchaseByServiceMongodbErrorResponse.toObject());
-      }
-      // Query went through
-      else {
-        console.log(purchaseGraph);
-        // Send back purchase graph
-        const findPurchaseByServiceSuccessResponse = new BaseResponse("200", "Query Successful", purchaseGraph);
-        res.status(200).send(findPurchaseByServiceSuccessResponse.toObject());
-      }
-    })
-  }
-  catch(e) {
+    );
+  } catch (e) {
     console.log(e);
-    const serviceGraphCatchResponse = new ErrorResponse("500", "Internal Server Error", e.message);
-    res.status(500).send(serviceGraphCatchResponse.toObject());
+    const findPurchaseByServiceCatchErrorResponse = new ErrorResponse(
+      "500",
+      "Internal server error",
+      e.message
+    );
+    res.status(500).send(findPurchaseByServiceCatchErrorResponse.toObject());
   }
 });
 
