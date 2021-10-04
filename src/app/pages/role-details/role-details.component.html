@@ -12,7 +12,12 @@
   <mat-card style="margin: 1% 20% 1% 20%" class="mat-elevation-z8">
     <mat-card-title>Role Details</mat-card-title>
     <br />
-    <form [formGroup]="form" (ngSubmit)="save()" #roleForm>
+    <form
+      [formGroup]="form"
+      (ngSubmit)="save()"
+      #roleForm
+      (keydown.enter)="$event.preventDefault()"
+    >
       <mat-card-content>
         <div fxLayout="column" fxLayoutGap="10px">
           <mat-form-field fxFlex>

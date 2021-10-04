@@ -41,7 +41,7 @@ export class RoleListComponent implements OnInit {
       data: {
         roleId,
         dialogHeader: 'Delete Record Dialog',
-        dialogBody: `Are you sure you want to delete role: ${text}?`,
+        dialogBody: `Are you sure you want to delete role: '${text}'?`,
       },
       disableClose: true,
       width: '800px',
