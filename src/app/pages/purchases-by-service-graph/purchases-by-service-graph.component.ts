@@ -47,7 +47,7 @@ export class PurchasesByServiceGraphComponent implements OnInit {
               '#1a3d1d',
               '#b9b2a2',
               '#231c0b',
-              '#c4a473',
+              '#eead3d',
             ],
             hoverBackgroundColor: [
               '#851a1b',
@@ -56,7 +56,7 @@ export class PurchasesByServiceGraphComponent implements OnInit {
               '#1a3d1d',
               '#b9b2a2',
               '#231c0b',
-              '#c4a473',
+              '#eead3d',
             ],
             data: this.itemCount,
           },
