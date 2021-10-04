@@ -74,6 +74,9 @@ import { RoleListComponent } from './pages/role-list/role-list.component';
 import { RoleCreateComponent } from './pages/role-create/role-create.component';
 import { RoleDetailsComponent } from './pages/role-details/role-details.component';
 import { PurchasesByServiceGraphComponent } from './pages/purchases-by-service-graph/purchases-by-service-graph.component';
+import { AddInvoiceItemDialogComponent } from './shared/add-invoice-item-dialog/add-invoice-item-dialog.component';
+import { InvoiceDialogComponent } from './shared/invoice-dialog/invoice-dialog.component';
+
 
 @NgModule({
   declarations: [
@@ -101,6 +104,8 @@ import { PurchasesByServiceGraphComponent } from './pages/purchases-by-service-g
     RoleCreateComponent,
     RoleDetailsComponent,
     PurchasesByServiceGraphComponent,
+    AddInvoiceItemDialogComponent,
+    InvoiceDialogComponent
   ],
   imports: [
     BrowserModule,

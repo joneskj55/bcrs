@@ -1,0 +1,54 @@
+<!--
+============================================
+; Title:  Add Invoice Dialog
+; Author: Tony Henderson
+; Date: 3 October 2021
+; Description: HTML template for add invoice dialog component
+;===========================================
+ -->
+
+<form [formGroup]="addItemForm" (ngSubmit)="createService(); addItemForm.reset()">
+  <div fxLayout="column">
+    <mat-form-field appearance="fill">
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="name" placeholder="Enter name of service">
+      <mat-error
+      *ngIf="addItemForm.controls.name.hasError('required') && addItemForm.controls.name.touched">
+        This field is required.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Hours</mat-label>
+      <input matInput formControlName="hours" placeholder="Hours of Labor">
+      <mat-error
+      *ngIf="addItemForm.controls.hours.hasError('required') && addItemForm.controls.hours.touched">
+        This field is required.
+      </mat-error>
+
+      <mat-error
+      *ngIf="addItemForm.controls.hours.hasError('pattern') && addItemForm.controls.hours.touched">
+        Must be a number.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Parts</mat-label>
+      <input matInput formControlName="parts" placeholder="Enter cost of parts">
+      <mat-error
+      *ngIf="addItemForm.controls.parts.hasError('required') && addItemForm.controls.parts.touched">
+        This field is required.
+      </mat-error>
+
+      <mat-error
+      *ngIf="addItemForm.controls.parts.hasError('pattern') && addItemForm.controls.parts.touched">
+        Must be a number.
+      </mat-error>
+    </mat-form-field>
+
+    <div fxLayoutAlign="space-between">
+      <button mat-raised-button color="secondary" type="button" (click)="cancelDialog()">Back</button>
+      <button mat-raised-button color="gryffindor" type="submit" [disabled]="!addItemForm.valid">Confirm</button>
+    </div>
+  </div>
+</form>
