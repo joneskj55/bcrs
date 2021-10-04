@@ -44,7 +44,7 @@ router.post("/signin", async (req, res) => {
         if (!user) {
           const noUserError = new ErrorResponse(
             404,
-            "This user was not found",
+            `The username '${req.body.userName}' was not found.`,
             null
           );
           return res.status(401).send(noUserError.toObject());
@@ -354,7 +354,7 @@ router.post("/register", async (req, res) => {
           // return an error response
           const createUserAlreadyExistsErrorResponse = new ErrorResponse(
             400,
-            "Username already exists",
+            `Username '${req.body.userName}' already exists`,
             user
           );
           // send the error response

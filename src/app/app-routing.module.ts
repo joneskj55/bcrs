@@ -29,6 +29,11 @@ import { ServerErrorComponent } from './pages/server-error/server-error.componen
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { AboutComponent } from './pages/about/about.component';
 import { ContactComponent } from './pages/contact/contact.component';
+import { RoleListComponent } from './pages/role-list/role-list.component';
+import { RoleCreateComponent } from './pages/role-create/role-create.component';
+import { RoleDetailsComponent } from './pages/role-details/role-details.component';
+import { PurchasesByServiceGraphComponent } from './pages/purchases-by-service-graph/purchases-by-service-graph.component';
+import { RoleGuard } from './shared/role.guard';
 
 const routes: Routes = [
   {
@@ -40,36 +45,62 @@ const routes: Routes = [
         component: HomeComponent,
       },
       {
+        path: 'purchases-by-service-graph',
+        component: PurchasesByServiceGraphComponent,
+        canActivate: [RoleGuard],
+      },
+      {
         path: 'about',
         component: AboutComponent,
       },
       {
         path: 'contact',
-        component: ContactComponent
+        component: ContactComponent,
       },
       {
         path: 'users',
         component: UserListComponent,
+        canActivate: [RoleGuard],
       },
       {
         path: 'users/:userId',
         component: UserDetailsComponent,
+        canActivate: [RoleGuard],
       },
       {
         path: 'users/create/new',
         component: UserCreateComponent,
+        canActivate: [RoleGuard],
       },
       {
         path: 'security-questions',
         component: SecurityQuestionListComponent,
+        canActivate: [RoleGuard],
       },
       {
         path: 'security-questions/:id',
         component: SecurityQuestionDetailsComponent,
+        canActivate: [RoleGuard],
       },
       {
         path: 'security-questions/create/new',
         component: SecurityQuestionCreateComponent,
+        canActivate: [RoleGuard],
+      },
+      {
+        path: 'roles',
+        component: RoleListComponent,
+        canActivate: [RoleGuard],
+      },
+      {
+        path: 'roles/create/new',
+        component: RoleCreateComponent,
+        canActivate: [RoleGuard],
+      },
+      {
+        path: 'roles/:roleId',
+        component: RoleDetailsComponent,
+        canActivate: [RoleGuard],
       },
       {
         path: 'server-error',
@@ -88,7 +119,7 @@ const routes: Routes = [
       },
       {
         path: 'register',
-        component: RegisterComponent
+        component: RegisterComponent,
       },
       {
         path: 'forgot',

@@ -2,6 +2,7 @@
 ============================================
 ; Title:  home.component.css
 ; Author: Professor Krasso
+; Modified by: Tony Henderson
 ; Date: 18 Sep 2021
 ; Description: Home component CSS file
 ;===========================================
@@ -16,7 +17,21 @@
   font-weight: lighter;
 }
 
+mat-card {
+  height: 400px;
+  overflow: auto;
+}
+
+mat-icon {
+  cursor: pointer;
+}
 .subtitle {
   text-align: center;
   font-size: 14px;
+}
+
+@media screen and (max-height: 750px) {
+  mat-card  {
+    height: 250px
+  }
 }

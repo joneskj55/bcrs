@@ -11,6 +11,7 @@
 <div fxLayout="column" class="cardContainer">
   <mat-card style="margin: 10% 30% 10% 30%" class="mat-elevation-z8">
     <mat-card-title>Forgot Password</mat-card-title>
+    <br />
 
     <p-messages [(value)]="errorMessages" [enableService]="false"></p-messages>
 
@@ -42,8 +43,8 @@
         <div fxFlex fxLayoutAlign="end" class="p5">
           <button
             mat-raised-button
-            routerLink="/session/signin"
             color="gryffindor"
+            routerLink="/session/signin"
           >
             Cancel
           </button>

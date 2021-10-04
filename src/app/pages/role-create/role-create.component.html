@@ -1,0 +1,65 @@
+<!--
+============================================
+; Title:  role-create.component.html
+; Author: Professor Krasso
+; Modified by: Kevin Jones
+; Date: 30 Sep 2021
+; Description: Role create component HTML file
+;===========================================
+ -->
+
+<div fxLayout="column">
+  <mat-card style="margin: 1% 20% 1% 20%" class="mat-elevation-z8">
+    <mat-card-title>Create Role</mat-card-title>
+
+    <br />
+
+    <p-messages [(value)]="errorMessages" [enableService]="false"></p-messages>
+
+    <form
+      [formGroup]="form"
+      (ngSubmit)="create()"
+      #roleForm
+      (keydown.enter)="$event.preventDefault()"
+    >
+      <mat-card-content>
+        <div fxLayout="column" fxLayoutGap="10px">
+          <mat-form-field appearance="fill">
+            <mat-label>Role</mat-label>
+            <input
+              type="text"
+              matInput
+              [formControl]="form.controls['text']"
+              placeholder="Role"
+            />
+
+            <mat-error
+              *ngIf="
+                form.controls['text'].hasError('required') &&
+                form.controls['text'].touched
+              "
+              class="error"
+            >
+              Role is a required field.
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </mat-card-content>
+
+      <br />
+      <mat-card-actions align="end">
+        <button mat-raised-button (click)="cancel()" color="gryffindor">
+          Cancel
+        </button>
+        <button
+          type="submit"
+          [disabled]="!form.valid"
+          mat-raised-button
+          color="secondary"
+        >
+          Submit
+        </button>
+      </mat-card-actions>
+    </form>
+  </mat-card>
+</div>

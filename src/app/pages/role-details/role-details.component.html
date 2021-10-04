@@ -1,0 +1,55 @@
+<!--
+============================================
+; Title:  role-details.component.html
+; Author: Professor Krasso
+; Modified by: Kevin Jones
+; Date: 1 Oct 2021
+; Description: Role details component HTML file
+;===========================================
+ -->
+
+<div fxLayout="column">
+  <mat-card style="margin: 1% 20% 1% 20%" class="mat-elevation-z8">
+    <mat-card-title>Role Details</mat-card-title>
+    <br />
+    <form
+      [formGroup]="form"
+      (ngSubmit)="save()"
+      #roleForm
+      (keydown.enter)="$event.preventDefault()"
+    >
+      <mat-card-content>
+        <div fxLayout="column" fxLayoutGap="10px">
+          <mat-form-field fxFlex>
+            <mat-label>Role</mat-label>
+            <input
+              matInput
+              [formControl]="form.controls['text']"
+              placeholder="Role"
+            />
+
+            <mat-error
+              class="error"
+              *ngIf="
+                form.controls['text'].hasError('required') &&
+                form.controls['text'].touched
+              "
+            >
+              Role is required.
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </mat-card-content>
+
+      <br />
+      <mat-card-actions align="end">
+        <button mat-raised-button (click)="cancel()" color="gryffindor">
+          Cancel
+        </button>
+        <button mat-raised-button [disabled]="!form.valid" color="secondary">
+          Submit
+        </button>
+      </mat-card-actions>
+    </form>
+  </mat-card>
+</div>

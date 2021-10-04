@@ -2,6 +2,7 @@
 ; Title: Register HTMl template
 ; Date: 25 September 2021
 ; Author: George Henderson
+; Modified by: Kevin Jones
 ; Description: HTML template for the register component.
 ----------------------------->
 
@@ -179,7 +180,7 @@
         <!-- Credentials Form -->
         <mat-step label="Credentials" [stepControl]="credentialsForm" errorMessage="Credentials are required.">
           <form [formGroup]="credentialsForm">
-            <p-message></p-message>
+            <p-messages [(value)]="errorMessages" [enableService]="false"></p-messages>
             <div fxLayout="column">
               <mat-form-field appearance="fill">
                 <mat-label>Username</mat-label>

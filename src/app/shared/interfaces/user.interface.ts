@@ -8,6 +8,8 @@
 ;===========================================
 */
 
+import { Role } from './../interfaces/role.interface';
+
 export interface User {
   _id?: string;
   userName?: string;
@@ -17,4 +19,5 @@ export interface User {
   phoneNumber: string;
   address: string;
   email: string;
+  role?: Role;
 }

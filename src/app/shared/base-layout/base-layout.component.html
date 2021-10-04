@@ -12,50 +12,87 @@
   <!-- navigation -->
   <nav fxFlex>
     <mat-toolbar class="nav-style">
+      <button routerLink="/" mat-button fxLayoutAlign="flex-start">
+        <!-- logo -->
+        <img src="../../../assets/gryff.webp" height="40px" width="40px" />
+      </button>
       <!-- navbar container -->
-      <div
-        class="navbar-container"
-        fxLayout="row"
-        fxLayoutAlign="space-between"
-      >
+      <div class="navbar-container" fxLayout="row" fxLayoutAlign="space-around">
         <div>
-          <!-- logo -->
-          <button class="logo" routerLink="/" mat-button>BCRS</button>
-
-          <button class="navbar-link" routerLink="/" mat-button>Home</button>
+          <button class="navbar-link" routerLink="/" mat-button>
+            Service Repair
+          </button>
           <button class="navbar-link" routerLink="about" mat-button>
             About
           </button>
-          <button class="navbar-link" routerLink="contact" mat-button>Contact Us</button>
+          <button class="navbar-link" routerLink="contact" mat-button>
+            Contact Us
+          </button>
         </div>
 
-        <div class="navbar-link">
-          <div ngbDropdown>
-            <button
-              mat-button
-              id="gfg"
-              class="btn"
-              style="color: white"
-              ngbDropdownToggle
-            >
-              <mat-icon>account_circle</mat-icon>
-            </button>
-            <div class="dropDownItem" ngbDropdownMenu="gfg">
-              <button
-                class="navbar-link"
-                routerLink="/security-questions"
-                ngbDropdownItem
+        <!-- profile menu -->
+        <div ngbDropdown>
+          <button
+            mat-icon-button
+            [matMenuTriggerFor]="profileMenu"
+            aria-label="user profile menu"
+            ngbDropdownToggle
+          >
+            <mat-icon>account_circle</mat-icon>
+          </button>
+
+          <mat-menu #profileMenu="matMenu">
+            <p style="padding: 10px">
+              Signed in as
+              <span
+                style="color: #008000; font-weight: 400; font-size: large"
+                >{{ username }}</span
               >
+              <span *ngIf="isAdmin()" style="font-weight: 400; color: #008000">
+                [{{ userRole.role }}]</span
+              >
+            </p>
+            <mat-divider></mat-divider>
+            <button
+              *ngIf="isAdmin()"
+              mat-menu-item
+              routerLink="/purchases-by-service-graph"
+            >
+              <mat-icon>pie_chart</mat-icon>
+              Purchases Graph
+            </button>
+
+            <button
+              *ngIf="isAdmin()"
+              routerLink="/users"
+              mat-menu-item
+              [matMenuTriggerFor]="users"
+            >
+              <mat-icon>fingerprint</mat-icon>Configurations
+            </button>
+            <mat-menu #users="matMenu">
+              <button *ngIf="isAdmin()" routerLink="/users" mat-menu-item>
+                <mat-icon>perm_identity</mat-icon>Users
+              </button>
+
+              <button
+                *ngIf="isAdmin()"
+                mat-menu-item
+                routerLink="/security-questions"
+              >
+                <mat-icon>question_answer</mat-icon>
                 Security Questions
               </button>
-              <button class="navbar-link" routerLink="/users" ngbDropdownItem>
-                Users
+              <button *ngIf="isAdmin()" routerLink="/roles" mat-menu-item>
+                <mat-icon>security</mat-icon>Roles
               </button>
-              <button class="navbar-link" (click)="signOut()" ngbDropdownItem>
-                Sign Out
-              </button>
-            </div>
-          </div>
+            </mat-menu>
+
+            <button mat-menu-item (click)="signOut()">
+              <mat-icon>logout</mat-icon>
+              <span>Sign out</span>
+            </button>
+          </mat-menu>
         </div>
       </div>
     </mat-toolbar>

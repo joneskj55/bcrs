@@ -8,6 +8,8 @@
 ;===========================================
 */
 
+import { Role } from './../../shared/interfaces/role.interface';
+import { RoleService } from './../../shared/services/role.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -23,13 +25,14 @@ export class UserDetailsComponent implements OnInit {
   user: User;
   userId: string;
   form: FormGroup;
-  roles: any;
+  roles: Role[];
 
   constructor(
     private route: ActivatedRoute,
     private fb: FormBuilder,
     private router: Router,
-    private userService: UserService
+    private userService: UserService,
+    private roleService: RoleService
   ) {
     // Get the user id from the url
     this.userId = this.route.snapshot.paramMap.get('userId');
@@ -51,6 +54,13 @@ export class UserDetailsComponent implements OnInit {
         this.form.controls.phoneNumber.setValue(this.user.phoneNumber);
         this.form.controls.address.setValue(this.user.address);
         this.form.controls.email.setValue(this.user.email);
+        this.form.controls.role.setValue(this.user.role['role']);
+
+        console.log(this.user);
+
+        this.roleService.findAllRoles().subscribe((res) => {
+          this.roles = res.data;
+        });
       }
     );
   }
@@ -66,6 +76,7 @@ export class UserDetailsComponent implements OnInit {
         null,
         Validators.compose([Validators.required, Validators.email]),
       ],
+      role: [null, Validators.compose([Validators.required])],
     });
   }
 
@@ -77,6 +88,7 @@ export class UserDetailsComponent implements OnInit {
       phoneNumber: this.form.controls.phoneNumber.value,
       address: this.form.controls.address.value,
       email: this.form.controls.email.value,
+      role: this.form.controls.role.value,
     };
 
     // Update the user

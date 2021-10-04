@@ -11,6 +11,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AppRoutingModule } from './app-routing.module';
+
+// HTTP
 import {
   HttpClient,
   HttpClientModule,
@@ -29,6 +32,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 // PrimeNG
 import { MessagesModule } from 'primeng/messages';
 import { MessageModule } from 'primeng/message';
+import { ChartModule } from 'primeng/chart';
 
 // Angular Material
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -41,9 +45,10 @@ import { MatInputModule } from '@angular/material/input';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCardModule } from '@angular/material/card';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatDividerModule } from '@angular/material/divider';
 
 // Components
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 import { BaseLayoutComponent } from './shared/base-layout/base-layout.component';
@@ -61,11 +66,17 @@ import { ResetPasswordFormComponent } from './shared/forms/reset-password-form/r
 import { VerifySecurityQuestionsFormComponent } from './shared/forms/verify-security-questions-form/verify-security-questions-form.component';
 import { VerifyUsernameFormComponent } from './shared/forms/verify-username-form/verify-username-form.component';
 import { RegisterComponent } from './pages/register/register.component';
-
 import { ServerErrorComponent } from './pages/server-error/server-error.component';
 import { ErrorInterceptor } from './shared/error.interceptor';
 import { AboutComponent } from './pages/about/about.component';
 import { ContactComponent } from './pages/contact/contact.component';
+import { RoleListComponent } from './pages/role-list/role-list.component';
+import { RoleCreateComponent } from './pages/role-create/role-create.component';
+import { RoleDetailsComponent } from './pages/role-details/role-details.component';
+import { PurchasesByServiceGraphComponent } from './pages/purchases-by-service-graph/purchases-by-service-graph.component';
+import { AddInvoiceItemDialogComponent } from './shared/add-invoice-item-dialog/add-invoice-item-dialog.component';
+import { InvoiceDialogComponent } from './shared/invoice-dialog/invoice-dialog.component';
+
 
 @NgModule({
   declarations: [
@@ -89,6 +100,12 @@ import { ContactComponent } from './pages/contact/contact.component';
     ServerErrorComponent,
     AboutComponent,
     ContactComponent,
+    RoleListComponent,
+    RoleCreateComponent,
+    RoleDetailsComponent,
+    PurchasesByServiceGraphComponent,
+    AddInvoiceItemDialogComponent,
+    InvoiceDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -111,6 +128,9 @@ import { ContactComponent } from './pages/contact/contact.component';
     MessageModule,
     MatStepperModule,
     MatSelectModule,
+    ChartModule,
+    MatMenuModule,
+    MatDividerModule,
   ],
   providers: [
     {

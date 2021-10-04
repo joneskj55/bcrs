@@ -25,6 +25,7 @@ export class UserListComponent implements OnInit {
   displayedColumns = [
     'userName',
     'firstName',
+    'lastName',
     'phoneNumber',
     'address',
     'email',
@@ -59,7 +60,7 @@ export class UserListComponent implements OnInit {
       data: {
         recordId,
         dialogHeader: 'Delete Record Dialog',
-        dialogBody: `Art you sure you want to delete user ${recordId}?`,
+        dialogBody: `Are you sure you want to delete user: '${recordId}'?`,
       },
       disableClose: true,
       width: '800px',
