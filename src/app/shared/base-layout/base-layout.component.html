@@ -42,7 +42,13 @@
           </button>
 
           <mat-menu #profileMenu="matMenu">
-            <p style="padding: 10px">Signed in as {{ username }}</p>
+            <p style="padding: 10px">
+              Signed in as
+              <span
+                style="color: #008000; font-weight: 400; font-size: large"
+                >{{ username }}</span
+              >
+            </p>
             <mat-divider></mat-divider>
 
             <button
