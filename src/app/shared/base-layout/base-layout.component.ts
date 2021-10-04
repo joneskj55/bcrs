@@ -21,7 +21,7 @@ import { RoleService } from '../services/role.service';
 })
 export class BaseLayoutComponent implements OnInit {
   year: number = Date.now();
-  userRole: Role;
+  userRole: any;
   username: string;
 
   constructor(
@@ -37,6 +37,11 @@ export class BaseLayoutComponent implements OnInit {
       });
   }
 
+  // check if the user is an admin
+  isAdmin(): boolean {
+    return this.userRole.role === 'admin';
+  }
+
   ngOnInit(): void {
     this.username = this.cookieService.get('session_user');
   }
@@ -47,11 +52,5 @@ export class BaseLayoutComponent implements OnInit {
   signOut() {
     this.cookieService.deleteAll();
     this.router.navigate(['/session/signin']);
-  }
-
-  // check if user is admin
-  isAdmin() {
-    const role = this.cookieService.get('user_role');
-    return role === 'admin';
   }
 }

@@ -47,7 +47,7 @@ const routes: Routes = [
       {
         path: 'purchases-by-service-graph',
         component: PurchasesByServiceGraphComponent,
-        canActivate: [RoleGuard]
+        canActivate: [RoleGuard],
       },
       {
         path: 'about',
@@ -60,38 +60,47 @@ const routes: Routes = [
       {
         path: 'users',
         component: UserListComponent,
+        canActivate: [RoleGuard],
       },
       {
         path: 'users/:userId',
         component: UserDetailsComponent,
+        canActivate: [RoleGuard],
       },
       {
         path: 'users/create/new',
         component: UserCreateComponent,
+        canActivate: [RoleGuard],
       },
       {
         path: 'security-questions',
         component: SecurityQuestionListComponent,
+        canActivate: [RoleGuard],
       },
       {
         path: 'security-questions/:id',
         component: SecurityQuestionDetailsComponent,
+        canActivate: [RoleGuard],
       },
       {
         path: 'security-questions/create/new',
         component: SecurityQuestionCreateComponent,
+        canActivate: [RoleGuard],
       },
       {
         path: 'roles',
         component: RoleListComponent,
+        canActivate: [RoleGuard],
       },
       {
         path: 'roles/create/new',
         component: RoleCreateComponent,
+        canActivate: [RoleGuard],
       },
       {
         path: 'roles/:roleId',
         component: RoleDetailsComponent,
+        canActivate: [RoleGuard],
       },
       {
         path: 'server-error',
