@@ -18,7 +18,7 @@
 }
 
 mat-card {
-  height: 275px;
+  height: 400px;
   overflow: auto;
 }
 
@@ -28,4 +28,10 @@ mat-icon {
 .subtitle {
   text-align: center;
   font-size: 14px;
+}
+
+@media screen and (max-height: 750px) {
+  mat-card  {
+    height: 250px
+  }
 }

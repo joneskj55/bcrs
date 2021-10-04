@@ -10,9 +10,9 @@
 
 <div fxLayout="column" fxFlex="100%" class="main-welcome">
   <p-messages [(value)]="errorMessages" [enableService]="false"></p-messages>
-  <div fxLayout="row" fxLayoutAlign="space-around" fxLayoutGap="10px" style="width: 90%; margin: auto;">
+  <div fxLayout="row" fxLayoutAlign="center" fxLayoutGap="7%" style="width: 90%; margin: 5% auto auto;">
 
-    <div fxLayout="column" fxLayoutGap="20px" style="max-width: fit-content;">
+    <div fxLayout="column" fxLayoutAlign="center" fxLayoutGap="20px" style="max-width: fit-content;">
       <!-- Buttons -->
       <button
         mat-raised-button
@@ -46,7 +46,7 @@
                 <td mat-cell *matCellDef="let item">{{ item.price | currency}}</td>
               </ng-container>
               <ng-container matColumnDef="functions">
-                <th mat-header-cell *matHeaderCellDef>Functions</th>
+                <th mat-header-cell *matHeaderCellDef></th>
                 <td mat-cell *matCellDef="let item; let i = index">
                   <button mat-icon-button>
                     <mat-icon color="gryffindor-icon" (click)="deleteFromInvoice(i, item.title, item.price, item.parts, item.hours)">delete</mat-icon>
