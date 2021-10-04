@@ -10,7 +10,7 @@
 
 <div fxLayout="column" fxFlex="100%" class="main-welcome">
   <p-messages [(value)]="errorMessages" [enableService]="false"></p-messages>
-  <div fxLayout="row" fxLayoutAlign="center" fxLayoutGap="7%" style="width: 90%; margin: 5% auto auto;">
+  <div fxLayout="row" fxLayoutAlign="center" fxLayoutGap="7%" style="width: 90%;">
 
     <div fxLayout="column" fxLayoutAlign="center" fxLayoutGap="20px" style="max-width: fit-content;">
       <!-- Buttons -->
@@ -74,7 +74,6 @@
         <!-- Order Button -->
         <button mat-raised-button color="gryffindor" (click)="placeOrder()" [disabled]="invoice.getTotal() === 0">Place Order</button>
       </div>
-
     </div>
 
   </div>
