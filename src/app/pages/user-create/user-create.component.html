@@ -14,7 +14,12 @@
 
     <br />
     <p-messages [(value)]="errorMessages" [enableService]="false"></p-messages>
-    <form [formGroup]="form" (ngSubmit)="createUser()" #userForm>
+    <form
+      [formGroup]="form"
+      (ngSubmit)="createUser()"
+      #userForm
+      (keydown.enter)="$event.preventDefault()"
+    >
       <mat-card-content>
         <div fxLayout="column" fxLayoutGap="10px">
           <mat-form-field appearance="fill">
