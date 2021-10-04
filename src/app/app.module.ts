@@ -45,6 +45,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCardModule } from '@angular/material/card';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatDividerModule } from '@angular/material/divider';
 
 // Components
 import { AppComponent } from './app.component';
@@ -72,7 +74,6 @@ import { RoleListComponent } from './pages/role-list/role-list.component';
 import { RoleCreateComponent } from './pages/role-create/role-create.component';
 import { RoleDetailsComponent } from './pages/role-details/role-details.component';
 import { PurchasesByServiceGraphComponent } from './pages/purchases-by-service-graph/purchases-by-service-graph.component';
-import { MatDividerModule } from '@angular/material/divider';
 import { AddInvoiceItemDialogComponent } from './shared/add-invoice-item-dialog/add-invoice-item-dialog.component';
 import { InvoiceDialogComponent } from './shared/invoice-dialog/invoice-dialog.component';
 
@@ -128,7 +129,8 @@ import { InvoiceDialogComponent } from './shared/invoice-dialog/invoice-dialog.c
     MatStepperModule,
     MatSelectModule,
     ChartModule,
-    MatDividerModule
+    MatMenuModule,
+    MatDividerModule,
   ],
   providers: [
     {

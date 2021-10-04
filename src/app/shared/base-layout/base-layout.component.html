@@ -30,36 +30,49 @@
           </button>
         </div>
 
-        <div class="navbar-link">
-          <div ngbDropdown>
+        <!-- profile menu -->
+        <div ngbDropdown>
+          <button
+            mat-icon-button
+            [matMenuTriggerFor]="profileMenu"
+            aria-label="user profile menu"
+            ngbDropdownToggle
+          >
+            <mat-icon>account_circle</mat-icon>
+          </button>
+
+          <mat-menu #profileMenu="matMenu">
+            <p style="padding: 10px">Signed in as {{ username }}</p>
+            <mat-divider></mat-divider>
+
             <button
-              mat-button
-              id="gfg"
-              class="btn"
-              style="color: white"
-              ngbDropdownToggle
+              *ngIf="isAdmin()"
+              mat-menu-item
+              routerLink="/purchases-by-service-graph"
             >
-              <mat-icon>account_circle</mat-icon>
+              <mat-icon>pie_chart</mat-icon>
+              Purchases Graph
             </button>
-            <div class="dropDownItem" ngbDropdownMenu="gfg">
-              <button
-                class="navbar-link"
-                routerLink="/security-questions"
-                ngbDropdownItem
-              >
-                Security Questions
-              </button>
-              <button class="navbar-link" routerLink="/users" ngbDropdownItem>
-                Users
-              </button>
-              <button class="navbar-link" routerLink="/roles" ngbDropdownItem>
-                Roles
-              </button>
-              <button class="navbar-link" (click)="signOut()" ngbDropdownItem>
-                Sign Out
-              </button>
-            </div>
-          </div>
+            <button
+              *ngIf="isAdmin()"
+              mat-menu-item
+              routerLink="/security-questions"
+            >
+              <mat-icon>question_answer</mat-icon>
+              Security Questions
+            </button>
+            <button *ngIf="isAdmin()" routerLink="/users" mat-menu-item>
+              <mat-icon>perm_identity</mat-icon>Users
+            </button>
+            <button *ngIf="isAdmin()" routerLink="/roles" mat-menu-item>
+              <mat-icon>security</mat-icon>Roles
+            </button>
+
+            <button mat-menu-item (click)="signOut()">
+              <mat-icon>logout</mat-icon>
+              <span>Sign out</span>
+            </button>
+          </mat-menu>
         </div>
       </div>
     </mat-toolbar>
