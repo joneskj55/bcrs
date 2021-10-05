@@ -19,6 +19,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { InvoiceDialogComponent } from '../..//shared/invoice-dialog/invoice-dialog.component';
 import { HttpClient } from '@angular/common/http';
 import { MessageService } from 'primeng/api';
+import { PrintInvoiceDialogComponent } from 'src/app/shared/print-invoice-dialog/print-invoice-dialog.component';
 
 @Component({
   selector: 'app-home',
@@ -186,4 +187,5 @@ export class HomeComponent implements OnInit {
     console.log('-- Invoice after deletion --');
     console.log(this.invoice);
   }
+
 }
