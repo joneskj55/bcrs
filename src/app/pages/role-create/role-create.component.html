@@ -16,12 +16,7 @@
 
     <p-messages [(value)]="errorMessages" [enableService]="false"></p-messages>
 
-    <form
-      [formGroup]="form"
-      (ngSubmit)="create()"
-      #roleForm
-      (keydown.enter)="$event.preventDefault()"
-    >
+    <form [formGroup]="form" #roleForm>
       <mat-card-content>
         <div fxLayout="column" fxLayoutGap="10px">
           <mat-form-field appearance="fill">
@@ -31,6 +26,7 @@
               matInput
               [formControl]="form.controls['text']"
               placeholder="Role"
+              (keydown.enter)="$event.preventDefault()"
             />
 
             <mat-error
@@ -56,6 +52,7 @@
           [disabled]="!form.valid"
           mat-raised-button
           color="secondary"
+          (click)="create()"
         >
           Submit
         </button>
