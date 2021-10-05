@@ -9,6 +9,12 @@
 
 <div fxLayout="column">
 
+  <div style="text-align: right">
+  <button mat-icon-button matDialogClose="cancel">
+    <mat-icon>close</mat-icon>
+  </button>
+  </div>
+
   <mat-card style="box-shadow: none;">
 
     <mat-card-title>Created Invoice - Bob's Computer Repair</mat-card-title>
@@ -48,7 +54,10 @@
     <br>
 
     <div fxLayout="row" fxLayoutAlign="space-between">
-      <button mat-raised-button type="button" (click)="back()" color="gryffindor">Go back</button>
+      <div fxLayoutGap="15px">
+        <!-- <button mat-raised-button type="button" (click)="back()" color="gryffindor">Go back</button> -->
+        <button mat-raised-button type="button" (click)="printInvoice()" color="secondary">Print</button>
+      </div>
       <h2>Total: {{ total | currency }}</h2>
     </div>
 

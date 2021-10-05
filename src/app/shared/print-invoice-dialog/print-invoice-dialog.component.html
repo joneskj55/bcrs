@@ -1,0 +1,21 @@
+<!-- Displayed when printing is in progress-->
+<ng-container *ngIf="!done">
+  <mat-card>
+    <mat-card-title>Printing Invoice...</mat-card-title>
+    <br>
+    <mat-card-content>
+      <mat-spinner></mat-spinner>
+    </mat-card-content>
+  </mat-card>
+</ng-container>
+
+<!-- Displayed when printing is done-->
+<ng-container *ngIf="done">
+  <mat-card>
+    <mat-card-title>Done!</mat-card-title>
+    <br>
+    <mat-card-content fxLayoutAlign="center">
+      <mat-icon color="gryffindor-icon">check_circle_outline</mat-icon>
+    </mat-card-content>
+  </mat-card>
+</ng-container>

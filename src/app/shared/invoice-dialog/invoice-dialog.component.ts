@@ -8,8 +8,9 @@
 */
 
 import { Component, Inject, OnInit } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { LineItem } from '../interfaces/line-item.interface';
+import { PrintInvoiceDialogComponent } from '../print-invoice-dialog/print-invoice-dialog.component';
 
 @Component({
   selector: 'app-invoice-dialog',
@@ -30,7 +31,8 @@ export class InvoiceDialogComponent implements OnInit {
 
   constructor(
     @Inject(MAT_DIALOG_DATA) private data,
-    private matDialogRef: MatDialogRef<InvoiceDialogComponent>
+    private matDialogRef: MatDialogRef<InvoiceDialogComponent>,
+    private dialog: MatDialog
   ) {
     console.log('-- Inside dialog component --');
     console.log(data);
@@ -48,9 +50,15 @@ export class InvoiceDialogComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  back() {
-    this.matDialogRef.close();
-  }
+  // back() {
+  //   this.matDialogRef.close();
+  // }
 
+  printInvoice() {
+    const dialogRef = this.dialog.open(PrintInvoiceDialogComponent, {
+      width: '280px',
+      disableClose: true
+    });
+  }
 
 }

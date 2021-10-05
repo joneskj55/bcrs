@@ -48,6 +48,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 // Components
 import { AppComponent } from './app.component';
@@ -77,6 +78,7 @@ import { RoleDetailsComponent } from './pages/role-details/role-details.componen
 import { PurchasesByServiceGraphComponent } from './pages/purchases-by-service-graph/purchases-by-service-graph.component';
 import { AddInvoiceItemDialogComponent } from './shared/add-invoice-item-dialog/add-invoice-item-dialog.component';
 import { InvoiceDialogComponent } from './shared/invoice-dialog/invoice-dialog.component';
+import { PrintInvoiceDialogComponent } from './shared/print-invoice-dialog/print-invoice-dialog.component';
 
 
 @NgModule({
@@ -106,7 +108,8 @@ import { InvoiceDialogComponent } from './shared/invoice-dialog/invoice-dialog.c
     RoleDetailsComponent,
     PurchasesByServiceGraphComponent,
     AddInvoiceItemDialogComponent,
-    InvoiceDialogComponent
+    InvoiceDialogComponent,
+    PrintInvoiceDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -133,6 +136,7 @@ import { InvoiceDialogComponent } from './shared/invoice-dialog/invoice-dialog.c
     ChartModule,
     MatMenuModule,
     MatDividerModule,
+    MatProgressSpinnerModule
   ],
   providers: [
     {
