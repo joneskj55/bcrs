@@ -1,0 +1,14 @@
+name: Awake Action
+on:
+  schedule:
+    # every 25 minutes, the steps below are triggered
+    - cron: "25 * * * *"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: awake-action
+        uses: devpolo/awake-action@v1
+        with:
+          url: "gryffindor-bcrs.herokuapp.com"
