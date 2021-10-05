@@ -102,10 +102,6 @@ const routes: Routes = [
         component: RoleDetailsComponent,
         canActivate: [RoleGuard],
       },
-      {
-        path: 'server-error',
-        component: ServerErrorComponent,
-      },
     ],
     canActivate: [AuthGuard],
   },
