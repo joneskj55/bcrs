@@ -16,7 +16,6 @@
     <p-messages [(value)]="errorMessages" [enableService]="false"></p-messages>
     <form
       [formGroup]="form"
-      (ngSubmit)="createUser()"
       #userForm
       (keydown.enter)="$event.preventDefault()"
     >
@@ -177,7 +176,12 @@
         <button mat-raised-button (click)="cancel()" color="gryffindor">
           Cancel
         </button>
-        <button mat-raised-button [disabled]="!form.valid" color="secondary">
+        <button
+          mat-raised-button
+          [disabled]="!form.valid"
+          color="secondary"
+          (click)="createUser()"
+        >
           Submit
         </button>
       </mat-card-actions>

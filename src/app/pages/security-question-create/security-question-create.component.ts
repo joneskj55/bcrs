@@ -13,12 +13,16 @@ import { SecurityQuestion } from '../../shared/interfaces/security-question.inte
 @Component({
   selector: 'app-security-question-create',
   templateUrl: './security-question-create.component.html',
-  styleUrls: ['./security-question-create.component.css']
+  styleUrls: ['./security-question-create.component.css'],
 })
 export class SecurityQuestionCreateComponent implements OnInit {
   form: FormGroup;
 
-  constructor(private fb: FormBuilder, private router: Router, private securityQuestionService: SecurityQuestionService) { }
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+    private securityQuestionService: SecurityQuestionService
+  ) {}
 
   ngOnInit(): void {
     this.form = this.fb.group({
@@ -26,20 +30,24 @@ export class SecurityQuestionCreateComponent implements OnInit {
     });
   }
 
-  create(): void{
-    const newSecurityQuestion: SecurityQuestion={
-      text: this.form.controls.text.value
-    }
+  create(): void {
+    const newSecurityQuestion: SecurityQuestion = {
+      text: this.form.controls.text.value,
+    };
 
-    this.securityQuestionService.createSecurityQuestion(newSecurityQuestion).subscribe(res=>{
-      this.router.navigate(['security-questions']);
-    }, err=>{
-      console.log(err);
-    });
+    this.securityQuestionService
+      .createSecurityQuestion(newSecurityQuestion)
+      .subscribe(
+        (res) => {
+          this.router.navigate(['security-questions']);
+        },
+        (err) => {
+          console.log(err);
+        }
+      );
   }
 
-  cancel(): void{
+  cancel(): void {
     this.router.navigate(['/security-questions']);
   }
-
 }
