@@ -11,4 +11,4 @@ jobs:
       - name: awake-action
         uses: devpolo/awake-action@v1
         with:
-          url: "gryffindor-bcrs.herokuapp.com"
+          url: "https://gryffindor-bcrs.herokuapp.com"
