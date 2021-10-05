@@ -53,14 +53,6 @@
               >
             </p>
             <mat-divider></mat-divider>
-            <button
-              *ngIf="isAdmin()"
-              mat-menu-item
-              routerLink="/purchases-by-service-graph"
-            >
-              <mat-icon>pie_chart</mat-icon>
-              Purchases Graph
-            </button>
 
             <button
               *ngIf="isAdmin()"
@@ -87,6 +79,14 @@
                 <mat-icon>security</mat-icon>Roles
               </button>
             </mat-menu>
+            <button
+              *ngIf="isAdmin()"
+              mat-menu-item
+              routerLink="/purchases-by-service-graph"
+            >
+              <mat-icon>pie_chart</mat-icon>
+              Purchases Graph
+            </button>
 
             <button mat-menu-item (click)="signOut()">
               <mat-icon>logout</mat-icon>
