@@ -18,18 +18,18 @@ import { Invoice } from '../../shared/interfaces/invoice.interface';
 import { CookieService } from 'ngx-cookie-service';
 import { InvoiceDialogComponent } from '../..//shared/invoice-dialog/invoice-dialog.component';
 import { HttpClient } from '@angular/common/http';
-import { Message } from 'primeng/api/message';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
+  providers: [MessageService]
 })
 export class HomeComponent implements OnInit {
 
 //---------------------- Variables
   displayedColumns: Array<string> = [ 'name', 'price', 'functions'];
-  errorMessages: Message[];
 
   total: number = 0;
   products: Array<IProduct>
@@ -41,6 +41,7 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private productService: ProductService,
+    private messageService: MessageService,
     private dialog: MatDialog,
     private http: HttpClient,
     private cookieService: CookieService)
@@ -135,6 +136,10 @@ export class HomeComponent implements OnInit {
       lineItemTotal: this.invoice.getLineItemTotal(),
       total: this.invoice.getTotal()
     }).subscribe( res => { // Success
+      // Success Toast
+      this.messageService.add(
+        { severity: 'success', summary: 'Success', detail: `Created invoice with the amount of $${this.invoice.getTotal()}` },
+      )
       // Open Invoice Summary Dialog
       let dialogRef = this.dialog.open(InvoiceDialogComponent, {
         width: '550px',
@@ -142,17 +147,13 @@ export class HomeComponent implements OnInit {
         disableClose: true
       });
 
-
+      // When dialog is closed
       dialogRef.afterClosed().subscribe(res => {
         // Reset the invoice
         this.reset();
       })
     }, err => { // Error
       console.log(err);
-      // Set error message
-      this.errorMessages = [
-        { severity: 'error', summary: 'Error', detail: err['message'] },
-      ];
     });
 
   }
