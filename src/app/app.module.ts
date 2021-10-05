@@ -32,6 +32,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 // PrimeNG
 import { MessagesModule } from 'primeng/messages';
 import { MessageModule } from 'primeng/message';
+import { ToastModule } from 'primeng/toast';
 import { ChartModule } from 'primeng/chart';
 
 // Angular Material
@@ -126,6 +127,7 @@ import { InvoiceDialogComponent } from './shared/invoice-dialog/invoice-dialog.c
     NgbModule,
     MessagesModule,
     MessageModule,
+    ToastModule,
     MatStepperModule,
     MatSelectModule,
     ChartModule,
