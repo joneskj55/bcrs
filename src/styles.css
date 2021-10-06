@@ -17,10 +17,6 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-tr:hover {
-  background-color: #e1ac527a;
-}
-
 .mat-gryffindor {
   background-color: #721e1c;
   color: #f5f6ce;
