@@ -1,0 +1,12 @@
+/*
+============================================
+; Title:  user-list.component.css
+; Author: Kevin Jones
+; Date: 18 Sep 2020
+; Description: User list component CSS file
+;===========================================
+*/
+
+.mat-row:nth-child(even) {
+  background-color: #b0b0b02e;
+}
