@@ -7,7 +7,7 @@
 ;===========================================
  -->
 
-<form [formGroup]="addItemForm" (ngSubmit)="createService(); addItemForm.reset()">
+<form [formGroup]="addItemForm" (ngSubmit)="createService(); addItemForm.reset()" autocomplete="off">
   <div fxLayout="column">
     <mat-form-field appearance="fill">
       <mat-label>Name</mat-label>

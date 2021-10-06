@@ -16,7 +16,7 @@
 
     <p-messages [(value)]="errorMessages" [enableService]="false"></p-messages>
 
-    <form [formGroup]="form" #roleForm (ngSubmit)="create()">
+    <form [formGroup]="form" #roleForm (ngSubmit)="create()" autocomplete="off">
       <mat-card-content>
         <div fxLayout="column" fxLayoutGap="10px">
           <mat-form-field appearance="fill">
