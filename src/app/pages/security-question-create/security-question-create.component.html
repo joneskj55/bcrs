@@ -4,7 +4,7 @@
 
     <br />
 
-    <form [formGroup]="form" #securityQuestionForm>
+    <form [formGroup]="form" #securityQuestionForm (ngSubmit)="create()">
       <mat-card-content>
         <div fxLayout="column" fxLayoutGap="10px">
           <mat-form-field appearance="fill">
@@ -14,7 +14,6 @@
               matInput
               [formControl]="form.controls['text']"
               placeholder="Question text"
-              (keydown.enter)="$event.preventDefault()"
             />
 
             <mat-error
@@ -40,7 +39,6 @@
           [disabled]="!form.valid"
           mat-raised-button
           color="secondary"
-          (click)="create()"
         >
           Submit
         </button>

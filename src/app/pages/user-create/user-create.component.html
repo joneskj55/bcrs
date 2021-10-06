@@ -17,7 +17,7 @@
     <form
       [formGroup]="form"
       #userForm
-      (keydown.enter)="$event.preventDefault()"
+      (ngSubmit)="createUser()"
     >
       <mat-card-content>
         <div fxLayout="column" fxLayoutGap="10px">
@@ -177,10 +177,10 @@
           Cancel
         </button>
         <button
+          type="submit"
           mat-raised-button
           [disabled]="!form.valid"
           color="secondary"
-          (click)="createUser()"
         >
           Submit
         </button>
