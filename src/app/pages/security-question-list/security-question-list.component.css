@@ -1,0 +1,12 @@
+/*
+============================================
+; Title:  security-question-list.component.css
+; Author: Kevin Jones
+; Date: 6 Oct 2020
+; Description: Security question list component CSS file
+;===========================================
+*/
+
+.mat-row:hover {
+  background-color: #0000000a;
+}
