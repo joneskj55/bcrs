@@ -5,15 +5,6 @@
 ; Description: HTML template for the contact component.
 --------------------->
 
-<div fxLayoutAlign="center center" style="margin: 5% auto auto; width: 50%;">
-  <h3>Hours</h3>
-  <ul>
-    <li>Mon - Fri: 7am-5pm</li>
-    <li>Sat - Sun: 7am-3pm</li>
-  </ul>
-</div>
-
-<br><br>
 <mat-card class="mat-elevation-z8" style="width: 80%; margin: auto;">
 
   <mat-card-content>
@@ -55,10 +46,20 @@
 <br />
 <br />
 
-<div fxLayoutAlign="center center">
-  <p style="width: 40%;">
+<div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10%">
+
+  <p fxFlex="30%" fxFlex.gt-md="20%" >
     If you have any questions or concerns please call the number above. Otherwise, we hope to have the pleasure to see you in the store!
   </p>
+
+  <div fxFlex="20%">
+    <h3>Hours</h3>
+    <ul>
+      <li>Mon - Fri: 7am-5pm</li>
+      <li>Sat - Sun: 7am-3pm</li>
+    </ul>
+  </div>
+
 </div>
 
 
