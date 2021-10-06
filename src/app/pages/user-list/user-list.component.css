@@ -10,3 +10,21 @@
 .mat-row:nth-child(even) {
   background-color: #b0b0b02e;
 }
+
+mat-card {
+  margin: 1% 20% 1% 20%;
+}
+
+@media (max-width: 1300px) {
+  mat-card {
+    width: 80%;
+    margin: auto;
+  }
+}
+
+@media (max-width: 984px) {
+  mat-card {
+    width: 98%;
+    margin: auto;
+  }
+}

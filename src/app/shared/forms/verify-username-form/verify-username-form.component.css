@@ -11,3 +11,14 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+mat-card {
+  margin: 10% 30% 10% 30%;
+}
+
+@media (max-width: 540px) {
+  mat-card {
+    width: 80%;
+    margin: auto;
+  }
+}
