@@ -139,7 +139,7 @@ export class HomeComponent implements OnInit {
     }).subscribe( res => { // Success
       // Success Toast
       this.messageService.add(
-        { severity: 'success', summary: 'Success', detail: `Created invoice with the amount of $${this.invoice.getTotal()}` },
+        { severity: 'success', summary: 'Success', detail: `Created invoice with the amount of $${Math.round((this.invoice.getTotal() + Number.EPSILON) * 100) / 100}` },
       )
       // Open Invoice Summary Dialog
       let dialogRef = this.dialog.open(InvoiceDialogComponent, {
