@@ -16,7 +16,7 @@
       [formGroup]="form"
       (ngSubmit)="save()"
       #roleForm
-      (keydown.enter)="$event.preventDefault()"
+
     >
       <mat-card-content>
         <div fxLayout="column" fxLayoutGap="10px">
@@ -46,7 +46,7 @@
         <button mat-raised-button (click)="cancel()" color="gryffindor">
           Cancel
         </button>
-        <button mat-raised-button [disabled]="!form.valid" color="secondary">
+        <button type="button" mat-raised-button [disabled]="!form.valid" color="secondary">
           Submit
         </button>
       </mat-card-actions>

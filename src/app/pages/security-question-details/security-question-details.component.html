@@ -10,7 +10,7 @@
               matInput
               [formControl]="form.controls['text']"
               placeholder="Security Question Text..."
-              (keydown.enter)="(saveQuestion)"
+              (keydown.enter)="saveQuestion()"
             />
 
             <mat-error
@@ -31,7 +31,7 @@
         <button mat-raised-button (click)="cancel()" color="gryffindor">
           Cancel
         </button>
-        <button mat-raised-button [disabled]="!form.valid" color="secondary">
+        <button type="submit" mat-raised-button [disabled]="!form.valid" color="secondary">
           Submit
         </button>
       </mat-card-actions>
