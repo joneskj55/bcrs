@@ -24,9 +24,9 @@
   font-weight: lighter;
 }
 
-button.menuOption:hover {
-  background-color: rgba( 246, 246, 206, .6)
-}
+/* button.menuOption:hover {
+  background-color: #eead3d;
+} */
 
 .main-content {
   padding-left: 30px;
