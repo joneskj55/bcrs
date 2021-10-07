@@ -3,7 +3,7 @@
 ; Title:  base-layout.component.ts
 ; Author: Professor Krasso
 ; Date: 17 Sep 2021
-; Modified By: George Henderson
+; Modified By: George Henderson, Kevin Jones
 ; Description: Base layout component file
 ;===========================================
 */
