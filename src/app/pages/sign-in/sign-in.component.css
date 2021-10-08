@@ -5,9 +5,9 @@
 ; Description: Styling for the sign-in component.
 ========================*/
 
-.cardContainer  {
+.cardContainer {
   height: 100%;
-  background: url('../../../assets/Gryffindor_Background.jpg');
+  background: url("../../../assets/Gryffindor_Background.webp");
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -16,18 +16,12 @@
   margin: 10% auto;
   min-width: 40%;
   background:
-    /* top*/
-    linear-gradient(
-      rgba(255, 255, 255, .5),
-      rgba(255, 255, 255, .5)
+    /* top*/ linear-gradient(
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0.5)
     ),
-    url('../../../assets/Gryffindor_Logo.jpg'),
-    /* bottom */
-    linear-gradient(
-      rgb(255, 255, 255),
-      rgb(255, 255, 255)
-    );
-
+    url("../../../assets/Gryffindor_Logo.webp"),
+    /* bottom */ linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255));
 
   background-repeat: no-repeat;
   background-position: center;

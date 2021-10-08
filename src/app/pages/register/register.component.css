@@ -5,9 +5,9 @@
 ; Description: Styles for register component.
 ==============================*/
 
-.cardContainer  {
+.cardContainer {
   height: 100%;
-  background: url('../../../assets/Gryffindor_Background.jpg');
+  background: url("../../../assets/Gryffindor_Background.webp");
   background-repeat: no-repeat;
   background-size: cover;
 }
