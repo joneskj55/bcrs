@@ -24,10 +24,6 @@
   font-weight: lighter;
 }
 
-/* button.menuOption:hover {
-  background-color: #eead3d;
-} */
-
 .main-content {
   padding-left: 30px;
   padding-bottom: 64px;
@@ -65,8 +61,4 @@
 
 .btn:focus {
   box-shadow: none;
-}
-
-.dropDownItem button {
-  font-size: 1.2em;
 }

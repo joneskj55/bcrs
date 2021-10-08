@@ -26,9 +26,6 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 // Forms
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-// Bootstrap
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
 // PrimeNG
 import { MessagesModule } from 'primeng/messages';
 import { MessageModule } from 'primeng/message';
@@ -80,7 +77,6 @@ import { AddInvoiceItemDialogComponent } from './shared/add-invoice-item-dialog/
 import { InvoiceDialogComponent } from './shared/invoice-dialog/invoice-dialog.component';
 import { PrintInvoiceDialogComponent } from './shared/print-invoice-dialog/print-invoice-dialog.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -109,7 +105,7 @@ import { PrintInvoiceDialogComponent } from './shared/print-invoice-dialog/print
     PurchasesByServiceGraphComponent,
     AddInvoiceItemDialogComponent,
     InvoiceDialogComponent,
-    PrintInvoiceDialogComponent
+    PrintInvoiceDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -127,7 +123,6 @@ import { PrintInvoiceDialogComponent } from './shared/print-invoice-dialog/print
     MatInputModule,
     MatDialogModule,
     MatTableModule,
-    NgbModule,
     MessagesModule,
     MessageModule,
     ToastModule,
@@ -136,7 +131,7 @@ import { PrintInvoiceDialogComponent } from './shared/print-invoice-dialog/print
     ChartModule,
     MatMenuModule,
     MatDividerModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
   ],
   providers: [
     {

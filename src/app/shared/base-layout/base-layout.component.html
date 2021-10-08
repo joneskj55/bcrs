@@ -31,14 +31,14 @@
         </div>
 
         <!-- profile menu -->
-        <div ngbDropdown>
+        <div>
           <button
             mat-icon-button
             [matMenuTriggerFor]="profileMenu"
             aria-label="user profile menu"
-            ngbDropdownToggle
           >
             <mat-icon>account_circle</mat-icon>
+            <mat-icon style="width: 20px; font-size: 20px;">arrow_drop_down</mat-icon>
           </button>
 
           <mat-menu #profileMenu="matMenu">
@@ -55,7 +55,6 @@
             <mat-divider></mat-divider>
 
             <button
-              class="menuOption"
               *ngIf="isAdmin()"
               mat-menu-item
               [matMenuTriggerFor]="users"
@@ -63,12 +62,11 @@
               <mat-icon>fingerprint</mat-icon>Configurations
             </button>
             <mat-menu #users="matMenu">
-              <button class="menuOption" *ngIf="isAdmin()" routerLink="/users" mat-menu-item>
+              <button  *ngIf="isAdmin()" routerLink="/users" mat-menu-item>
                 <mat-icon>perm_identity</mat-icon>Users
               </button>
 
               <button
-                class="menuOption"
                 *ngIf="isAdmin()"
                 mat-menu-item
                 routerLink="/security-questions"
@@ -76,12 +74,11 @@
                 <mat-icon>question_answer</mat-icon>
                 Security Questions
               </button>
-              <button class="menuOption" *ngIf="isAdmin()" routerLink="/roles" mat-menu-item>
+              <button *ngIf="isAdmin()" routerLink="/roles" mat-menu-item>
                 <mat-icon>security</mat-icon>Roles
               </button>
             </mat-menu>
             <button
-              class="menuOption"
               *ngIf="isAdmin()"
               mat-menu-item
               routerLink="/purchases-by-service-graph"
@@ -90,7 +87,7 @@
               Purchases Graph
             </button>
 
-            <button class="menuOption" mat-menu-item (click)="signOut()">
+            <button mat-menu-item (click)="signOut()">
               <mat-icon>logout</mat-icon>
               <span>Sign out</span>
             </button>
